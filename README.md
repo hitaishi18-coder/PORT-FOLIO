@@ -6,8 +6,7 @@ The portfolio showcases my skills, projects, learning journey, achievements, and
 ---
 
 ## 🚀 Live Preview
-> (Add your deployed link here after deployment)
-https://your-portfolio-link.com
+https://port-folio-git-main-hitaishis-projects-e3bf07a7.vercel.app/
 
 markdown
 Copy code
