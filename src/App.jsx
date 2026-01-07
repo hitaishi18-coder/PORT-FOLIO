@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import Landing from "./Landing";
 import Home from "./Home";
-import introMusic from "./assets/Dhun.mp3"; 
+import introMusic from "./assets/audio.mp3"; 
 
 export default function App() {
   const [entered, setEntered] = useState(false);
