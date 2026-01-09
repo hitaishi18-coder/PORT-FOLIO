@@ -4,8 +4,13 @@ export default function Navbar() {
       className="
         sticky top-0 z-50
         w-full
-        flex items-center justify-between
-        px-12 py-4
+        flex flex-col sm:flex-row
+        items-center sm:justify-between
+        gap-3 sm:gap-0
+
+        px-4 sm:px-8 md:px-12
+        py-3 sm:py-4
+
         bg-gradient-to-r from-pink-200 via-yellow-100 to-sky-200
         shadow-md
         rounded-b-xl
@@ -24,7 +29,14 @@ export default function Navbar() {
       </div>
 
       {/* RIGHT : LINKS */}
-      <div className="flex items-center gap-6 text-sm font-semibold text-gray-700">
+      <div
+        className="
+          flex flex-wrap
+          justify-center sm:justify-end
+          gap-2 sm:gap-4 md:gap-6
+          text-sm font-semibold text-gray-700
+        "
+      >
         {[
           "Skills",
           "Projects",
@@ -40,6 +52,7 @@ export default function Navbar() {
               rounded-md
               hover:bg-white/50
               transition
+              whitespace-nowrap
             "
           >
             {item}

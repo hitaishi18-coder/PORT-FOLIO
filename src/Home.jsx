@@ -8,6 +8,7 @@ import Certifications from "./components/Certifications";
 import Services from "./components/Services";
 import Footer from "./components/Footer";
 import LearningJourney from "./components/LearningJourney";
+import Background from "./components/Background";
 
 
 export default function Home() {
@@ -16,6 +17,7 @@ export default function Home() {
   return (
     <div className={dark ? "bg-[#0b0b14] text-white" : "bg-pink-50 text-gray-900"}>
       <Navbar dark={dark} setDark={setDark} />
+      <Background/>
       <Introduction />
       <LearningJourney/>
       <Skills />
