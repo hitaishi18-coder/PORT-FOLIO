@@ -23,9 +23,9 @@ export default function Introduction() {
         <div className="relative shrink-0">
           <div className="absolute -inset-4 rounded-full bg-gradient-to-r from-pink-300 via-yellow-200 to-sky-300 blur-lg opacity-70"></div>
           <img
-            src="/src/assets/hitaishi.jpg"
+            src="/hitaishi-image.jpeg"
             alt="Hitaishi"
-            className="relative w-56 h-56 md:w-72 md:h-72 rounded-full object-cover border-4 border-pink-400 shadow-lg"
+            className="relative w-56 h-56 md:w-82 md:h-89 rounded-full object-cover border-4 border-pink-400 shadow-lg"
           />
         </div>
 
