@@ -27,7 +27,7 @@ export default function Projects() {
     {
       title: "AI-Powered E-Commerce Website",
       tech: "Node js • Javascript • AI integration",
-      image: "/public/ecommerce.png",
+      image: "/ecommerce.png",
       live: "https://project-ecommerce-shopping-website-1.onrender.com/",
       github: "https://github.com/hitaishi18-coder/project-Ecommerce-shopping-website",
       isGraphic: false,
@@ -58,6 +58,54 @@ export default function Projects() {
         bg-gradient-to-b from-sky-50 via-blue-50 to-emerald-50
       "
     >
+      {/* FLOAT ANIMATION */}
+      <style>
+        {`
+          @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-18px); }
+          }
+        `}
+      </style>
+
+      {/* BACKGROUND BLENDS */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,#bae6fd,transparent_60%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,#fbcfe8,transparent_60%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,#bbf7d0,transparent_60%)]" />
+
+      {/* 🐶 DOG IMAGE — unchanged */}
+      <img
+        src="/kuta.png"
+        alt="cute dog"
+        className="
+          pointer-events-none
+          absolute
+          top-24 left-6
+          w-40 md:w-56
+          opacity-80
+          rotate-[-12deg]
+          animate-[float_6s_ease-in-out_infinite]
+          z-0
+        "
+      />
+
+      {/* 👧 DORA IMAGE — FIXED */}
+      <img
+        src="/avatar.jpg"
+        alt="dora avatar"
+        className="
+          pointer-events-none
+          absolute
+          -bottom-10
+          right-24
+          w-36 md:w-44 lg:w-52
+          opacity-90
+          rotate-0
+          animate-[float_7s_ease-in-out_infinite]
+          z-0
+        "
+      />
+
       {/* TITLE */}
       <h2 className="relative z-10 text-4xl md:text-5xl font-extrabold text-center mb-20">
         My <span className="text-pink-400">Projects</span> 🚀
@@ -95,7 +143,7 @@ export default function Projects() {
               />
             </div>
 
-            {/* OVERLAY (ONLY FOR NON-GRAPHIC PROJECTS) */}
+            {/* OVERLAY — ONLY FOR CODING PROJECTS */}
             {!project.isGraphic && (
               <div
                 className="

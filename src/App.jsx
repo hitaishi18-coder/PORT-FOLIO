@@ -1,7 +1,11 @@
 import { useState, useRef, useEffect } from "react";
+
+/*  CUSTOM CURSOR */
+import DogCursor from "./components/DogCursor";
+
 import Landing from "./Landing";
 import Home from "./Home";
-import introMusic from "./assets/audio.mp3"; 
+import introMusic from "./assets/audio.mp3";
 
 export default function App() {
   const [entered, setEntered] = useState(false);
@@ -17,16 +21,26 @@ export default function App() {
   }, []);
 
   return (
-    <div className="bg-[#0b0b14] text-white min-h-screen">
-      
-      {/* GLOBAL BACKGROUND MUSIC */}
-      <audio
-        ref={audioRef}
-        src={introMusic}
-        loop
-      />
+    <>
+      {/*  DOG CURSOR — GLOBAL (LANDING + HOME) */}
+      <DogCursor />
 
-      {entered ? <Home /> : <Landing onEnter={() => setEntered(true)} />}
-    </div>
+      <div className="bg-[#0b0b14] text-white min-h-screen relative">
+        
+        {/* 🎵 GLOBAL BACKGROUND MUSIC */}
+        <audio
+          ref={audioRef}
+          src={introMusic}
+          loop
+        />
+
+        {/* PAGE SWITCH */}
+        {entered ? (
+          <Home />
+        ) : (
+          <Landing onEnter={() => setEntered(true)} />
+        )}
+      </div>
+    </>
   );
 }

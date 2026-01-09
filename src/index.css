@@ -1,1 +1,7 @@
 @import "tailwindcss";
+
+
+/* HIDE DEFAULT CURSOR */
+* {
+  cursor: none !important;
+}

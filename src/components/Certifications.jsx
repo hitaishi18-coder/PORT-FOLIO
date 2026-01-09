@@ -9,19 +9,19 @@ export default function Certifications() {
     {
       title: "SQL & Database Management",
       issuer: "Professional Certification",
-      link: "https://your-certificate-link.com",
+      link: "https://drive.google.com/file/d/16_FyZJa_OGUjM4H0fdD0qsBmco1Ay4Et/view?usp=drivesdk",
       tip: "SQL Queries, Joins, Normalization",
     },
     {
       title: "MERN Stack Development",
       issuer: "Professional Certification",
-      link: "https://your-certificate-link.com",
+      link: "https://drive.google.com/file/d/1w6HYD7j-DyxL3Dv7slFM2yZvlApyyecw/view?usp=drivesdk",
       tip: "MongoDB, Express, React, Node.js",
     },
     {
       title: "Data Structures & Algorithms in Java",
       issuer: "Professional Certification",
-      link: "https://drive.google.com/file/d/1Wj5WTJY-0_CkjBaSZN_LA55oSiYFfj-d/view",
+      link: "https://drive.google.com/file/d/1jCvYEJM1h7IpfE8_tpscmoM6cxC_uMn7/view?usp=drivesdk",
       tip: "Arrays, Trees, Graphs, Optimization",
     },
     {

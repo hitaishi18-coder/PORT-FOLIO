@@ -58,7 +58,7 @@ export default function Footer({ dark }) {
   ];
 
   return (
-    <footer className="relative mt-32 overflow-hidden">
+    <footer className="relative overflow-hidden">
 
       {/* ===== WAVE DIVIDER ===== */}
       <svg

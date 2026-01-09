@@ -111,7 +111,7 @@ export default function Introduction() {
           {/* ===== BUTTONS ===== */}
           <div className="flex flex-wrap justify-center md:justify-start gap-4">
             <a
-              href="/Hitaishi_Resume.pdf"
+              href="/resume.pdf"
               download
               className="
                 px-6 py-3 rounded-full

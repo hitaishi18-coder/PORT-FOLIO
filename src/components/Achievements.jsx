@@ -1,11 +1,11 @@
 export default function Achievements() {
   const achievements = [
-     {
+    {
       title: "Engineering Contest",
       subtitle: "Second Runner-Up",
       description:
         "Designed a water level indicator project demonstrating practical engineering application.",
-      image: "/src/assets/achievements/engineering.png",
+      image: "/image2.jpeg",
       emoji: "🥈",
     },
     {
@@ -16,15 +16,32 @@ export default function Achievements() {
       image: "/fest.png",
       emoji: "🥇",
     },
-  
        {
+      title: "Hospitality Head",
+      subtitle: "Department Leadership Role",
+      description:
+        "Served as the Hospitality Head in my department, managing guest coordination, logistics, and team operations during departmental events.",
+      image: "/hospitality.png",
+      emoji: "🤝",
+    },
+    {
       title: "HackerWrath Hackathon",
       subtitle: "Top 5 Teams (Out of 60)",
       description:
         "Built a file sharing and real-time chat platform during the hackathon, competing among 60+ teams.",
       image: "/hack.png",
       emoji: "🏆",
-    }
+    },
+
+ 
+    {
+      title: "International Conference Organization",
+      subtitle: "Volunteer & Technical Support",
+      description:
+        "Contributed to organizing an international conference (DIECAI) held in the department by volunteering and developing the official event website.",
+      image: "/event.png",
+      emoji: "🌍",
+    },
   ];
 
   return (
