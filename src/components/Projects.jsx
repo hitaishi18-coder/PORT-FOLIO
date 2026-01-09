@@ -15,11 +15,11 @@ export default function Projects() {
       github: "https://github.com/Rohaz-bhalla/DIECAI-GNDU",
     },
     {
-      title: "ShopEase – Smart E-Commerce Platform",
-      tech: "MERN • Payments • Cart System",
-      image: "/src/assets/projects/shopease.png",
-      live: "https://your-deployed-link.com",
-      github: "https://github.com/hitaishi18-coder/shopease",
+      title: "ShopEase – Smart AI Assistant ",
+      tech: "MERN • AI concepy • LLM Api",
+      image: "/shopease.png",
+      live: "https://shopease-ai-support.vercel.app/",
+      github: "https://github.com/hitaishi18-coder/shopease-ai-support",
     },
     {
       title: "AI-Powered E-Commerce Website",
