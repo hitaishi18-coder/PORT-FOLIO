@@ -4,7 +4,7 @@ export default function Projects() {
       title: "MindSync – AI Neuro-Productivity System",
       tech: "MERN • AI • Computer Vision",
       image: "/mind.png",
-      live: "mind-sync-mu.vercel.app",
+      live: "https://mind-sync-mu.vercel.app",
       github: "https://github.com/hitaishi18-coder/mind-sync",
     },
     {
@@ -15,33 +15,21 @@ export default function Projects() {
       github: "https://github.com/Rohaz-bhalla/DIECAI-GNDU",
     },
     {
-      title: "ShopEase – Smart AI Assistant ",
-      tech: "MERN • AI concepy • LLM Api",
+      title: "ShopEase – Smart AI Assistant",
+      tech: "MERN • AI Concept • LLM API",
       image: "/shopease.png",
       live: "https://shopease-ai-support.vercel.app/",
       github: "https://github.com/hitaishi18-coder/shopease-ai-support",
     },
     {
       title: "AI-Powered E-Commerce Website",
-      tech: "MERN Stack",
-      image: "/src/assets/projects/ecommerce.png",
-      live: "https://your-deployed-link.com",
-      github: "https://github.com/hitaishi18-coder",
+      tech: "Node js • Javascript • Ai integration ",
+      image: "/public/ecommerce.png",
+      live: "https://project-ecommerce-shopping-website-1.onrender.com/",
+      github: "https://github.com/hitaishi18-coder/project-Ecommerce-shopping-website",
     },
-    {
-      title: "BuddyAI – AI Chatbot",
-      tech: "Node.js • Gemini API",
-      image: "/src/assets/projects/chatbot.png",
-      live: "https://your-deployed-link.com",
-      github: "https://github.com/hitaishi18-coder",
-    },
-    {
-      title: "URL Shortener",
-      tech: "Node.js • Express • MongoDB",
-      image: "/src/assets/projects/urlshortener.png",
-      live: "https://your-deployed-link.com",
-      github: "https://github.com/hitaishi18-coder/url-shortener",
-    },
+    
+    
   ];
 
   return (
@@ -54,10 +42,55 @@ export default function Projects() {
         bg-gradient-to-b from-sky-50 via-blue-50 to-emerald-50
       "
     >
+      {/* INLINE FLOAT ANIMATION */}
+      <style>
+        {`
+          @keyframes float {
+            0%, 100% {
+              transform: translateY(0);
+            }
+            50% {
+              transform: translateY(-18px);
+            }
+          }
+        `}
+      </style>
+
       {/* BACKGROUND BLENDS */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,#bae6fd,transparent_60%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,#fbcfe8,transparent_60%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,#bbf7d0,transparent_60%)]" />
+
+      {/* DECORATIVE GRAPHICS */}
+      <img
+        src="/kuta.png"
+        alt="decorative graphic"
+        className="
+          pointer-events-none
+          absolute
+          top-24 left-6
+          w-40 md:w-56
+          opacity-70
+          rotate-[-12deg]
+          animate-[float_6s_ease-in-out_infinite]
+          z-0
+        "
+      />
+
+      <img
+        src="/avatar.jpg"
+        alt="decorative graphic"
+        className="
+          pointer-events-none
+          absolute
+          bottom-20 right-8
+          w-44 md:w-60
+          opacity-70
+          rotate-[10deg]
+          animate-[float_7s_ease-in-out_infinite]
+          z-0
+        "
+      />
 
       {/* TITLE */}
       <h2 className="relative z-10 text-4xl md:text-5xl font-extrabold text-center mb-20">
