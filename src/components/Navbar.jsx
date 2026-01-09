@@ -1,21 +1,50 @@
-export default function Navbar({ dark, setDark }) {
+export default function Navbar() {
   return (
-    <nav className="fixed top-0 w-full z-50 flex justify-between items-center px-10 py-4 backdrop-blur-md bg-black/30">
-      <h1 className="text-xl font-semibold text-pink-400">
-        Hitaishi
-      </h1>
+    <nav
+      className="
+        sticky top-0 z-50
+        w-full
+        flex items-center justify-between
+        px-12 py-4
+        bg-gradient-to-r from-pink-200 via-yellow-100 to-sky-200
+        shadow-md
+        rounded-b-xl
+      "
+    >
+      {/* LEFT : AVATAR + NAME */}
+      <div className="flex items-center gap-3">
+        <img
+          src="/avatar.jpg"
+          alt="Hitaishi"
+          className="w-9 h-9 rounded-full border-2 border-pink-400"
+        />
+        <span className="text-lg font-bold text-pink-600">
+          Hitaishi
+        </span>
+      </div>
 
-      <div className="flex items-center gap-6">
-        <a href="#skills" className="hover:text-pink-400">Skills</a>
-        <a href="#projects" className="hover:text-pink-400">Projects</a>
-        <a href="#services" className="hover:text-pink-400">Services</a>
-
-        <button
-          onClick={() => setDark(!dark)}
-          className="px-4 py-2 rounded-2xl bg-pink-500 text-white hover:scale-105 transition"
-        >
-          {dark ? "Light" : "Dark"}
-        </button>
+      {/* RIGHT : LINKS */}
+      <div className="flex items-center gap-6 text-sm font-semibold text-gray-700">
+        {[
+          "Skills",
+          "Projects",
+          "Certifications",
+          "Services",
+          "Achievements",
+        ].map((item) => (
+          <a
+            key={item}
+            href={`#${item.toLowerCase()}`}
+            className="
+              px-3 py-2
+              rounded-md
+              hover:bg-white/50
+              transition
+            "
+          >
+            {item}
+          </a>
+        ))}
       </div>
     </nav>
   );
