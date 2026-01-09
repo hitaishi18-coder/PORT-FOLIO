@@ -5,7 +5,6 @@ import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Achievements from "./components/Achievements";
 import Certifications from "./components/Certifications";
-import Services from "./components/Services";
 import Footer from "./components/Footer";
 import LearningJourney from "./components/LearningJourney";
 import Background from "./components/Background";
@@ -24,7 +23,6 @@ export default function Home() {
       <Projects />
       <Certifications />
       <Achievements />
-      <Services />
       <Footer dark={dark} />
     </div>
   );

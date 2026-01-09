@@ -41,7 +41,6 @@ export default function Navbar() {
           "Skills",
           "Projects",
           "Certifications",
-          "Services",
           "Achievements",
         ].map((item) => (
           <a
