@@ -6,7 +6,6 @@ export default function LearningJourney() {
       description:
         "Began my programming journey by learning Python, focusing on syntax, basic logic, and problem-solving fundamentals.",
     },
-
     {
       year: "2023",
       title: "Learning C Programming",
@@ -19,7 +18,6 @@ export default function LearningJourney() {
       description:
         "Although I did not work extensively on C projects, this phase helped strengthen my understanding of low-level programming concepts.",
     },
-
     {
       year: "2024",
       title: "Introduction to Web Development",
@@ -38,7 +36,6 @@ export default function LearningJourney() {
       description:
         "Built a website for my department’s college fest, gaining hands-on experience in real-world development and collaboration.",
     },
-
     {
       year: "2025",
       title: "Data Structures & Algorithms",
@@ -66,36 +63,83 @@ export default function LearningJourney() {
   ];
 
   return (
-    <section id="learning" className="py-24 px-6">
-      <h2 className="text-4xl font-bold text-center mb-20">
-        My <span className="text-pink-400">Learning Journey</span>
+    <section
+      id="learning"
+      className="
+        relative
+        py-32 px-6
+        overflow-hidden
+
+        /* BASE BLEND */
+        bg-gradient-to-b from-yellow-50 via-pink-50 to-sky-50
+      "
+    >
+      {/* ===== COLOR BLEND LAYERS ===== */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,#fde68a,transparent_65%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,#fbcfe8,transparent_65%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,#bae6fd,transparent_65%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,#bbf7d0,transparent_65%)]" />
+
+      {/* ===== HEADING ===== */}
+      <h2 className="relative z-10 text-4xl md:text-5xl font-extrabold text-center mb-24">
+        My <span className="text-pink-400">Learning Journey</span> ✨
       </h2>
 
-      <div className="max-w-4xl mx-auto flex flex-col gap-12">
+      {/* ===== TIMELINE ===== */}
+      <div className="relative z-10 max-w-4xl mx-auto flex flex-col gap-16">
         {journey.map((item, index) => (
-          <div
-            key={index}
-            className="relative pl-10 transition-all duration-300 hover:translate-x-1"
-          >
+          <div key={index} className="relative pl-16 group">
+            
             {/* DOT */}
-            <div className="absolute left-0 top-2 w-4 h-4 rounded-full bg-pink-500"></div>
+            <div
+              className="
+                absolute left-2 top-7
+                w-6 h-6
+                rounded-full
+                bg-gradient-to-r from-pink-400 via-yellow-300 to-sky-300
+                shadow-md
+                group-hover:scale-110
+                transition
+              "
+            />
 
             {/* LINE */}
             {index !== journey.length - 1 && (
-              <div className="absolute left-[7px] top-6 h-full w-px bg-pink-400/40"></div>
+              <div
+                className="
+                  absolute left-[17px] top-14
+                  h-full w-[4px]
+                  rounded-full
+                  bg-gradient-to-b from-pink-300 via-yellow-200 to-sky-300
+                  opacity-70
+                "
+              />
             )}
 
-            {/* CONTENT */}
-            <div className="p-6 rounded-xl bg-pink-500/10 border border-pink-400/30 hover:bg-pink-500/20 transition">
-              <span className="text-sm font-semibold text-pink-300">
+            {/* CARD */}
+            <div
+              className="
+                relative
+                p-8
+                rounded-[2rem]
+                bg-white/60
+                backdrop-blur-lg
+                border border-white/40
+                shadow-[0_20px_40px_rgba(0,0,0,0.12)]
+                transition
+                group-hover:-translate-y-1
+                group-hover:shadow-[0_30px_60px_rgba(0,0,0,0.18)]
+              "
+            >
+              <span className="inline-block mb-3 px-4 py-1 text-xs font-bold rounded-full bg-pink-100 text-pink-500">
                 {item.year}
               </span>
 
-              <h3 className="text-xl font-semibold mt-2 mb-2">
+              <h3 className="text-xl md:text-2xl font-bold text-gray-800 mb-2">
                 {item.title}
               </h3>
 
-              <p className="text-sm opacity-80 leading-relaxed">
+              <p className="text-sm md:text-base text-gray-700 leading-relaxed">
                 {item.description}
               </p>
             </div>
