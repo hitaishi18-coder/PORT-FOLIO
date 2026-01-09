@@ -2,35 +2,51 @@ export default function Landing({ onEnter }) {
   return (
     <div
       className="
-        h-screen w-full flex items-center justify-center overflow-hidden
+        min-h-screen w-full flex items-center justify-center overflow-hidden
         font-[Poppins]
         bg-gradient-to-r from-pink-200 via-yellow-100 to-sky-100
         relative
+        px-4 sm:px-6 lg:px-12
       "
     >
       {/* EXTRA BLEND */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_left,#fbcfe8,transparent_50%)]"></div>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_right,#bae6fd,transparent_50%)]"></div>
 
-      <div className="relative z-10 w-[90%] max-w-[1400px] flex items-center justify-between gap-20">
+      <div
+        className="
+          relative z-10 w-full max-w-[1400px]
+          flex flex-col-reverse lg:flex-row
+          items-center justify-between
+          gap-10 lg:gap-20
+        "
+      >
         {/* LEFT IMAGE */}
-        <div className="flex-[1.2] flex justify-center">
+        <div className="w-full lg:flex-[1.2] flex justify-center">
           <img
             src="/dora.jpg"
             alt="Welcome Character"
             className="
-              w-full max-w-[560px] h-auto
+              w-[80%] sm:w-[70%] md:w-[60%] lg:w-full
+              max-w-[520px]
+              h-auto
               drop-shadow-[0_40px_80px_rgba(0,0,0,0.18)]
             "
           />
         </div>
 
         {/* RIGHT TEXT */}
-        <div className="flex-1 text-left">
+        <div className="w-full lg:flex-1 text-center lg:text-left">
           {/* ANIMATED HEADING */}
-          <h1 className="text-[4rem] font-extrabold leading-tight mb-8">
+          <h1
+            className="
+              font-extrabold leading-tight
+              text-[2.5rem] sm:text-[3rem] md:text-[3.5rem] lg:text-[4rem]
+              mb-8
+            "
+          >
             {/* LINE 1 */}
-            <div className="flex gap-3">
+            <div className="flex justify-center lg:justify-start gap-3">
               <span
                 className="opacity-0 translate-y-6 animate-[fadeUp_0.6s_ease-out_forwards]"
                 style={{ animationDelay: "0s", color: "#FB7185" }}
@@ -47,7 +63,7 @@ export default function Landing({ onEnter }) {
             </div>
 
             {/* LINE 2 */}
-            <div className="flex gap-3 mt-2">
+            <div className="flex justify-center lg:justify-start gap-3 mt-2">
               <span
                 className="opacity-0 translate-y-6 animate-[fadeUp_0.6s_ease-out_forwards]"
                 style={{ animationDelay: "0.6s", color: "#EC4899" }}
@@ -59,17 +75,17 @@ export default function Landing({ onEnter }) {
                 className="opacity-0 translate-y-6 animate-[fadeUp_0.6s_ease-out_forwards]"
                 style={{ animationDelay: "0.9s", color: "#38BDF8" }}
               >
-                World 
+                World
               </span>
             </div>
           </h1>
 
-          {/* BUTTON (LESS ROUNDED) */}
+          {/* BUTTON */}
           <button
             onClick={onEnter}
             className="
-              px-12 py-4
-              rounded-[6px]
+              w-full sm:w-auto
+              px-10 sm:px-12 py-4
               font-bold text-gray-800
               bg-gradient-to-r from-pink-300 to-orange-200
               shadow-[0_20px_40px_rgba(0,0,0,0.25)]
@@ -83,7 +99,7 @@ export default function Landing({ onEnter }) {
         </div>
       </div>
 
-      {/* KEYFRAMES INLINE */}
+      {/* KEYFRAMES */}
       <style>
         {`
           @keyframes fadeUp {
