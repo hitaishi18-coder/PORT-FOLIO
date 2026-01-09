@@ -1,22 +1,34 @@
 export default function Certifications() {
   const certifications = [
     {
-      title: "MERN Stack Development",
+      title: "Web Development with Node.js",
       issuer: "Professional Certification",
-      link: "https://your-certificate-link.com",
-      tip: "MongoDB, Express, React & Node.js",
+      link: "https://drive.google.com/file/d/1X_9u9O5ALdgfDreMIdajpK2YWDkUio_Z/view",
+      tip: "Node.js, Express, REST APIs",
     },
     {
       title: "SQL & Database Management",
       issuer: "Professional Certification",
       link: "https://your-certificate-link.com",
-      tip: "Queries, joins, normalization",
+      tip: "SQL Queries, Joins, Normalization",
+    },
+    {
+      title: "MERN Stack Development",
+      issuer: "Professional Certification",
+      link: "https://your-certificate-link.com",
+      tip: "MongoDB, Express, React, Node.js",
     },
     {
       title: "Data Structures & Algorithms in Java",
       issuer: "Professional Certification",
-      link: "https://your-certificate-link.com",
-      tip: "DSA concepts using Java",
+      link: "https://drive.google.com/file/d/1Wj5WTJY-0_CkjBaSZN_LA55oSiYFfj-d/view",
+      tip: "Arrays, Trees, Graphs, Optimization",
+    },
+    {
+      title: "MERN Stack Bootcamp",
+      issuer: "Intensive Training Program",
+      link: "https://drive.google.com/file/d/14lmihWDg0PZerO3JbHl1gIkfnfVI0LDX/view",
+      tip: "Full-Stack Projects & Industry Practices",
     },
   ];
 

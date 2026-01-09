@@ -13,23 +13,16 @@ export default function Achievements() {
       subtitle: "1st Prize",
       description:
         "Developed a web platform for event registration and scheduling, securing first position.",
-      image: "/src/assets/achievements/collegefest.png",
+      image: "/fest.png",
       emoji: "🥇",
     },
-    {
-      title: "Engineering Contest",
-      subtitle: "Second Runner-Up",
-      description:
-        "Designed a water level indicator project demonstrating practical engineering application.",
-      image: "/src/assets/achievements/engineering.png",
-      emoji: "🥈",
-    },
+  
        {
       title: "HackerWrath Hackathon",
       subtitle: "Top 5 Teams (Out of 60)",
       description:
         "Built a file sharing and real-time chat platform during the hackathon, competing among 60+ teams.",
-      image: "/src/assets/achievements/hackathon.png",
+      image: "/hack.png",
       emoji: "🏆",
     }
   ];
