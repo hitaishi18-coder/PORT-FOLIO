@@ -29,7 +29,8 @@ export default function Projects() {
       tech: "Node js • Javascript • AI integration",
       image: "/ecommerce.png",
       live: "https://project-ecommerce-shopping-website-1.onrender.com/",
-      github: "https://github.com/hitaishi18-coder/project-Ecommerce-shopping-website",
+      github:
+        "https://github.com/hitaishi18-coder/project-Ecommerce-shopping-website",
       isGraphic: false,
     },
 
@@ -45,6 +46,14 @@ export default function Projects() {
       tech: "Graphic Design • Branding • Visual Design",
       image: "/advertisement.png",
       isGraphic: true,
+    },
+    {
+      title: "n8n Daily Joke Notifier – Workflow Automation",
+      tech: "n8n • APIs • Twilio • Automation",
+      image: "/n8n-workflow.png",
+      live: "https://n8n-latest-qhs9.onrender.com",
+      github: "https://github.com/hitaishi18-coder/n8n-daily-tech-notifier",
+      isGraphic: false,
     },
   ];
 
@@ -89,14 +98,14 @@ export default function Projects() {
         "
       />
 
-      {/* 👧 DORA IMAGE — FIXED */}
+      {/*  DORA IMAGE — FIXED */}
       <img
         src="/avatar.jpg"
         alt="dora avatar"
         className="
           pointer-events-none
           absolute
-          -bottom-10
+          -bottom-4
           right-24
           w-36 md:w-44 lg:w-52
           opacity-90
@@ -204,9 +213,7 @@ export default function Projects() {
             </div>
 
             {/* STAR */}
-            <div className="absolute top-4 right-4 text-2xl opacity-70">
-              ⭐
-            </div>
+            <div className="absolute top-4 right-4 text-2xl opacity-70">⭐</div>
           </div>
         ))}
       </div>

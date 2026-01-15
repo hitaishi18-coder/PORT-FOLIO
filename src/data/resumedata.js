@@ -7,12 +7,14 @@ const resumeData = {
     "MongoDB", "SQL",
     "Git", "GitHub", "Postman"
   ],
-  projects: [
-    "MindSync – AI Neuro-Productivity System",
-    "DIECAI – Decision Intelligence Engine",
-    "ShopEase – Smart AI Assistant",
-    "AI-Powered E-Commerce Website"
-  ],
+projects: [
+  "MindSync – AI Neuro-Productivity System",
+  "DIECAI – Decision Intelligence Engine",
+  "ShopEase – Smart AI Assistant",
+  "AI-Powered E-Commerce Website",
+  "n8n Daily Joke Notifier – Workflow       Automation"
+],
+
   achievements: [
     "3rd Position in 'I Am Engineer' Event",
     "Hospitality Head in Department",
