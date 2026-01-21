@@ -37,7 +37,7 @@ export default function Background() {
         border: "1px solid rgba(255, 255, 255, 0.1)",
       }}>
         <img
-          src="/background.jpg"
+          src="/"
           alt="Showcase"
           style={{
             width: "100%",
