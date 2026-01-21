@@ -35,103 +35,137 @@ export default function Certifications() {
   return (
     <section
       id="certifications"
-      className="
-        relative
-        py-32 px-6
-        overflow-hidden
-        bg-gradient-to-b from-sky-50 via-blue-50 to-emerald-50
-      "
+      style={{
+        position: "relative",
+        padding: "8rem 1.5rem",
+        overflow: "hidden",
+        backgroundColor: "transparent",
+      }}
     >
-      {/* ===== BACKGROUND BLENDS ===== */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,#bae6fd,transparent_60%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,#fbcfe8,transparent_60%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,#bbf7d0,transparent_60%)]" />
-
-      {/* ===== TITLE ===== */}
-      <h2 className="relative z-10 text-4xl md:text-5xl font-extrabold text-center mb-24">
-        My <span className="text-pink-400">Certifications</span> 🎓
+      {/* TITLE */}
+      <h2 style={{
+        position: "relative",
+        zIndex: 10,
+        fontSize: "clamp(2rem, 4vw, 3rem)",
+        fontWeight: 800,
+        textAlign: "center",
+        marginBottom: "6rem",
+        fontFamily: "'Outfit', sans-serif",
+      }}>
+        Professional <span style={{ color: "#6366f1" }}>Certifications</span>
       </h2>
 
-      {/* ===== PATH CONTAINER ===== */}
-      <div className="relative z-10 max-w-4xl mx-auto flex flex-col gap-20">
+      {/* TIMELINE CONTAINER */}
+      <div style={{
+        position: "relative",
+        zIndex: 10,
+        maxWidth: "900px",
+        margin: "0 auto",
+      }}>
+        {/* CENTER LINE */}
+        <div style={{
+          position: "absolute",
+          left: "50%",
+          transform: "translateX(-50%)",
+          top: 0,
+          bottom: 0,
+          width: "2px",
+          background: "linear-gradient(to bottom, transparent, rgba(99, 102, 241, 0.3), transparent)",
+        }} className="hidden md:block" />
 
-        {/* ===== ANIMATED PATH ===== */}
-        <div className="absolute left-1/2 -translate-x-1/2 top-0 h-full w-[4px] bg-gradient-to-b from-sky-300 via-pink-300 to-emerald-300 rounded-full opacity-60 animate-pulse"></div>
-
-        {certifications.map((cert, index) => (
-          <div
-            key={index}
-            className={`
-              relative
-              flex
-              ${index % 2 === 0 ? "justify-start" : "justify-end"}
-            `}
-          >
-            {/* ===== PATH DOT ===== */}
+        <div style={{ display: "flex", flexDirection: "column", gap: "4rem" }}>
+          {certifications.map((cert, index) => (
             <div
-              className="
-                absolute
-                left-1/2 -translate-x-1/2
-                top-1/2 -translate-y-1/2
-                w-6 h-6
-                rounded-full
-                bg-gradient-to-r from-sky-400 to-pink-400
-                shadow-lg
-                animate-bounce
-              "
+              key={index}
+              style={{
+                display: "flex",
+                justifyContent: index % 2 === 0 ? "flex-start" : "flex-end",
+                position: "relative",
+              }}
             >
-              <span className="absolute inset-0 flex items-center justify-center text-sm">
-                🏅
-              </span>
-            </div>
+              {/* DOT */}
+              <div style={{
+                position: "absolute",
+                left: "50%",
+                top: "50%",
+                transform: "translate(-50%, -50%)",
+                width: "12px",
+                height: "12px",
+                borderRadius: "50%",
+                backgroundColor: "#6366f1",
+                boxShadow: "0 0 15px rgba(99, 102, 241, 0.5)",
+                zIndex: 20,
+              }} className="hidden md:block" />
 
-            {/* ===== CERT CARD ===== */}
-            <a
-              href={cert.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="
-                group
-                w-full sm:w-[420px]
-                p-7
-                rounded-[2rem]
-                bg-white/70
-                backdrop-blur-md
-                border border-white/60
-                shadow-lg
-                transition
-                hover:-translate-y-2
-                hover:shadow-[0_30px_60px_rgba(0,0,0,0.18)]
-              "
-            >
-              <h3 className="text-xl font-bold text-gray-800 mb-2 flex items-center gap-2">
-                📜 {cert.title}
-              </h3>
-
-              <p className="text-sm text-blue-500 font-semibold mb-3">
-                {cert.issuer}
-              </p>
-
-              <div
-                className="
-                  inline-block
-                  px-4 py-1
-                  rounded-full
-                  text-xs
-                  bg-gradient-to-r from-sky-200 to-emerald-200
-                  text-gray-800
-                  font-semibold
-                "
+              <a
+                href={cert.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  width: "100%",
+                  mdWidth: "45%",
+                  padding: "2rem",
+                  borderRadius: "20px",
+                  backgroundColor: "rgba(255, 255, 255, 0.03)",
+                  border: "1px solid rgba(255, 255, 255, 0.1)",
+                  backdropFilter: "blur(8px)",
+                  textDecoration: "none",
+                  color: "inherit",
+                  transition: "all 0.3s ease",
+                  display: "block",
+                }}
+                className="w-full md:w-[45%]"
+                onMouseOver={(e) => {
+                  e.currentTarget.style.transform = "translateY(-5px)";
+                  e.currentTarget.style.borderColor = "rgba(99, 102, 241, 0.4)";
+                  e.currentTarget.style.backgroundColor = "rgba(99, 102, 241, 0.05)";
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.transform = "translateY(0)";
+                  e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.1)";
+                  e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.03)";
+                }}
               >
-                {cert.tip}
-              </div>
-
-              <p className="mt-4 text-sm text-pink-400 font-semibold">
-                🔗 Click to view certificate
-              </p>
-            </a>
-          </div>
-        ))}
+                <div style={{ 
+                  fontSize: "0.75rem", 
+                  fontWeight: 600, 
+                  color: "#6366f1", 
+                  textTransform: "uppercase",
+                  letterSpacing: "0.1em",
+                  marginBottom: "0.5rem",
+                }}>
+                  {cert.issuer}
+                </div>
+                <h3 style={{ 
+                  fontSize: "1.25rem", 
+                  fontWeight: 700, 
+                  marginBottom: "1rem",
+                  fontFamily: "'Outfit', sans-serif",
+                }}>
+                  {cert.title}
+                </h3>
+                <div style={{
+                  fontSize: "0.875rem",
+                  opacity: 0.7,
+                  marginBottom: "1.5rem",
+                  lineHeight: 1.5,
+                }}>
+                  Expertise: {cert.tip}
+                </div>
+                <div style={{ 
+                  display: "flex", 
+                  alignItems: "center", 
+                  gap: "0.5rem",
+                  fontSize: "0.875rem",
+                  fontWeight: 600,
+                  color: "#6366f1",
+                }}>
+                  View Certificate ↗
+                </div>
+              </a>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

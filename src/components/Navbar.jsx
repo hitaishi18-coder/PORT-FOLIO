@@ -1,62 +1,92 @@
-export default function Navbar() {
+export default function Navbar({ dark, setDark }) {
   return (
     <nav
-      className="
-        sticky top-0 z-50
-        w-full
-        flex flex-col sm:flex-row
-        items-center sm:justify-between
-        gap-3 sm:gap-0
-
-        px-4 sm:px-8 md:px-12
-        py-3 sm:py-4
-
-        bg-gradient-to-r from-pink-200 via-yellow-100 to-sky-200
-        shadow-md
-        rounded-b-xl
-      "
+      style={{
+        sticky: "top",
+        position: "sticky",
+        top: 0,
+        zIndex: 50,
+        width: "100%",
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "space-between",
+        padding: "0.75rem 2rem",
+        backgroundColor: dark ? "rgba(9, 9, 11, 0.8)" : "rgba(248, 250, 252, 0.8)",
+        backdropFilter: "blur(12px)",
+        borderBottom: dark ? "1px solid rgba(255, 255, 255, 0.1)" : "1px solid rgba(0, 0, 0, 0.1)",
+        transition: "all 0.3s ease",
+      }}
     >
       {/* LEFT : AVATAR + NAME */}
-      <div className="flex items-center gap-3">
+      <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
         <img
           src="/avatar.jpg"
           alt="Hitaishi"
-          className="w-9 h-9 rounded-full border-2 border-pink-400"
+          style={{
+            width: "2.5rem",
+            height: "2.5rem",
+            borderRadius: "50%",
+            border: `2px solid ${dark ? "#6366f1" : "#4f46e5"}`,
+            objectFit: "cover",
+          }}
         />
-        <span className="text-lg font-bold text-pink-600">
+        <span style={{ 
+          fontSize: "1.25rem", 
+          fontWeight: 700, 
+          fontFamily: "'Outfit', sans-serif",
+          color: dark ? "#ffffff" : "#0f172a",
+        }}>
           Hitaishi
         </span>
       </div>
 
-      {/* RIGHT : LINKS */}
-      <div
-        className="
-          flex flex-wrap
-          justify-center sm:justify-end
-          gap-2 sm:gap-4 md:gap-6
-          text-sm font-semibold text-gray-700
-        "
-      >
-        {[
-          "Skills",
-          "Projects",
-          "Certifications",
-          "Achievements",
-        ].map((item) => (
-          <a
-            key={item}
-            href={`#${item.toLowerCase()}`}
-            className="
-              px-3 py-2
-              rounded-md
-              hover:bg-white/50
-              transition
-              whitespace-nowrap
-            "
-          >
-            {item}
-          </a>
-        ))}
+      {/* RIGHT : LINKS & TOGGLE */}
+      <div style={{ display: "flex", alignItems: "center", gap: "1.5rem" }}>
+        <div
+          className="hidden md:flex"
+          style={{
+            gap: "1.5rem",
+            fontSize: "0.875rem",
+            fontWeight: 600,
+          }}
+        >
+          {["Skills", "Projects", "Certifications", "Achievements"].map((item) => (
+            <a
+              key={item}
+              href={`#${item.toLowerCase()}`}
+              style={{
+                color: dark ? "#94a3b8" : "#475569",
+                textDecoration: "none",
+                transition: "color 0.2s",
+              }}
+              onMouseOver={(e) => e.currentTarget.style.color = dark ? "#ffffff" : "#0f172a"}
+              onMouseOut={(e) => e.currentTarget.style.color = dark ? "#94a3b8" : "#475569"}
+            >
+              {item}
+            </a>
+          ))}
+        </div>
+
+        {/* DARK MODE TOGGLE */}
+        <button
+          onClick={() => setDark(!dark)}
+          style={{
+            background: dark ? "#27272a" : "#e2e8f0",
+            border: "none",
+            borderRadius: "50%",
+            width: "40px",
+            height: "40px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            cursor: "pointer",
+            transition: "all 0.3s ease",
+            fontSize: "1.2rem",
+          }}
+        >
+          {dark ? "🌙" : "☀️"}
+        </button>
       </div>
     </nav>
   );

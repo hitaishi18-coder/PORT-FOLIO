@@ -6,7 +6,6 @@ export default function Prize() {
       description:
         "Secured 3rd position in the “I Am Engineer” technical event conducted by my department, demonstrating problem-solving and engineering skills.",
       year: "2022",
-      icon: "🥉",
       link: "https://drive.google.com/file/d/10nTree9RV5btKTc7DkJE3dEBZuyOaceY/view", 
     },
     {
@@ -15,7 +14,6 @@ export default function Prize() {
       description:
         "Received a certificate of appreciation for designing and developing the registration website for the department fest “Tachyon 5.0”.",
       year: "2024",
-      icon: "🏆",
       link: "https://drive.google.com/file/d/1wNuoN0vKJVSeLgWwVYOMR73_4eDH3kgX/view?usp=drivesdk",
     },
     {
@@ -24,7 +22,6 @@ export default function Prize() {
       description:
         "Participated in the national-level hackathon “HackerWrath 2.0”, collaborating in a competitive environment to build innovative solutions.",
       year: "2025",
-      icon: "💻",
       link: "https://drive.google.com/file/d/1S4NUBGrOJIYs-Wy3ORecHZCfUtCB80hb/view",
     },
     {
@@ -33,64 +30,105 @@ export default function Prize() {
       description:
         "Hosted and volunteered at the DIECAI event. Also contributed by developing the official event website and supporting event coordination.",
       year: "2025",
-      icon: "🎤",
       link: "https://drive.google.com/file/d/1HH5hH-SqDqmSWSNjyNOmUjzTIKo46jBf/view",
     },
   ];
 
   return (
     <section
-      id="achievements"
-      className="
-        relative
-        py-32 px-6
-        overflow-hidden
-        bg-gradient-to-b from-emerald-50 via-sky-50 to-pink-50
-      "
+      id="prizes"
+      style={{
+        position: "relative",
+        padding: "8rem 1.5rem",
+        overflow: "hidden",
+        backgroundColor: "transparent",
+      }}
     >
-      {/* BACKGROUND BLENDS */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,#bbf7d0,transparent_60%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,#bae6fd,transparent_60%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,#fbcfe8,transparent_60%)]" />
-
       {/* TITLE */}
-      <h2 className="relative z-10 text-4xl md:text-5xl font-extrabold text-center mb-24">
-        Certifications of <span className="text-pink-400">Appreciation</span> 🏅
+      <h2 style={{
+        position: "relative",
+        zIndex: 10,
+        fontSize: "clamp(2rem, 4vw, 3rem)",
+        fontWeight: 800,
+        textAlign: "center",
+        marginBottom: "6rem",
+        fontFamily: "'Outfit', sans-serif",
+      }}>
+        Awards & <span style={{ color: "#6366f1" }}>Certificates</span>
       </h2>
 
       {/* ACHIEVEMENTS GRID */}
-      <div className="relative z-10 max-w-6xl mx-auto grid sm:grid-cols-2 gap-12">
+      <div style={{
+        position: "relative",
+        zIndex: 10,
+        maxWidth: "1200px",
+        margin: "0 auto",
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+        gap: "2.5rem",
+      }}>
         {achievements.map((item, index) => (
           <div
             key={index}
-            className="
-              relative
-              p-8
-              rounded-[2rem]
-              bg-white/70
-              backdrop-blur-md
-              border border-white/60
-              shadow-lg
-              transition-all duration-500
-              hover:-translate-y-2
-              hover:shadow-[0_30px_60px_rgba(0,0,0,0.18)]
-            "
+            style={{
+              padding: "2.5rem",
+              borderRadius: "24px",
+              backgroundColor: "rgba(255, 255, 255, 0.03)",
+              border: "1px solid rgba(255, 255, 255, 0.1)",
+              backdropFilter: "blur(8px)",
+              transition: "all 0.3s ease",
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.borderColor = "rgba(99, 102, 241, 0.3)";
+              e.currentTarget.style.transform = "translateY(-5px)";
+              e.currentTarget.style.backgroundColor = "rgba(99, 102, 241, 0.02)";
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.1)";
+              e.currentTarget.style.transform = "translateY(0)";
+              e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.03)";
+            }}
           >
-            {/* ICON */}
-            <div className="absolute -top-6 -left-6 w-14 h-14 rounded-full bg-gradient-to-r from-sky-400 to-pink-400 flex items-center justify-center text-2xl shadow-lg">
-              {item.icon}
+            {/* YEAR BADGE */}
+            <div style={{
+              display: "inline-block",
+              padding: "0.25rem 0.75rem",
+              borderRadius: "99px",
+              fontSize: "0.75rem",
+              fontWeight: 700,
+              color: "#6366f1",
+              backgroundColor: "rgba(99, 102, 241, 0.1)",
+              marginBottom: "1rem",
+            }}>
+              {item.year}
             </div>
 
             {/* CONTENT */}
-            <h3 className="text-xl font-bold text-gray-800 mb-2">
+            <h3 style={{ 
+              fontSize: "1.25rem", 
+              fontWeight: 700, 
+              marginBottom: "0.5rem",
+              fontFamily: "'Outfit', sans-serif",
+            }}>
               {item.title}
             </h3>
 
-            <p className="text-sm text-blue-500 font-semibold mb-3">
-              {item.organization} • {item.year}
+            <p style={{ 
+              fontSize: "0.875rem", 
+              fontWeight: 600, 
+              color: "#6366f1", 
+              opacity: 0.8,
+              marginBottom: "1rem",
+            }}>
+              {item.organization}
             </p>
 
-            <p className="text-gray-700 text-sm leading-relaxed mb-4">
+            <p style={{ 
+              fontSize: "0.9rem", 
+              lineHeight: 1.6, 
+              opacity: 0.7, 
+              marginBottom: "2rem",
+            }}>
               {item.description}
             </p>
 
@@ -100,16 +138,17 @@ export default function Prize() {
                 href={item.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="
-                  inline-block
-                  mt-2
-                  text-sm
-                  font-semibold
-                  text-pink-500
-                  hover:underline
-                "
+                style={{
+                  fontSize: "0.875rem",
+                  fontWeight: 600,
+                  color: "#6366f1",
+                  textDecoration: "none",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "0.5rem",
+                }}
               >
-                🔗 View Certificate / Details
+                View Details ↗
               </a>
             )}
           </div>

@@ -18,9 +18,13 @@ export default function Home() {
 
   return (
     <div
-      className={`relative ${
-        dark ? "bg-[#0b0b14] text-white" : "bg-pink-50 text-gray-900"
-      }`}
+      style={{
+        position: "relative",
+        backgroundColor: dark ? "#09090b" : "#f8fafc",
+        color: dark ? "#f8fafc" : "#09090b",
+        minHeight: "100vh",
+        transition: "background-color 0.3s ease, color 0.3s ease",
+      }}
     >
       <AiAssistant />
 

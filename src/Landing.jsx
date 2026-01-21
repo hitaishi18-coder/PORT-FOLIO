@@ -1,116 +1,146 @@
 export default function Landing({ onEnter }) {
   return (
     <div
-      className="
-        min-h-screen w-full flex items-center justify-center overflow-hidden
-        font-[Poppins]
-        bg-gradient-to-r from-pink-200 via-yellow-100 to-sky-100
-        relative
-        px-4 sm:px-6 lg:px-12
-      "
+      style={{
+        minHeight: "100vh",
+        width: "100%",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        overflow: "hidden",
+        backgroundColor: "#020617",
+        position: "relative",
+        padding: "0 1.5rem",
+        color: "#f8fafc",
+      }}
     >
-      {/* EXTRA BLEND */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_left,#fbcfe8,transparent_50%)]"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_right,#bae6fd,transparent_50%)]"></div>
+      {/* PROFESSIONAL GLOW BACKGROUND */}
+      <div 
+        style={{
+          position: "absolute",
+          top: "-10%",
+          left: "-10%",
+          width: "40%",
+          height: "40%",
+          background: "radial-gradient(circle, rgba(79, 70, 229, 0.15) 0%, transparent 70%)",
+          filter: "blur(60px)",
+        }}
+      />
+      <div 
+        style={{
+          position: "absolute",
+          bottom: "-10%",
+          right: "-10%",
+          width: "40%",
+          height: "40%",
+          background: "radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%)",
+          filter: "blur(60px)",
+        }}
+      />
 
       <div
-        className="
-          relative z-10 w-full max-w-[1400px]
-          flex flex-col-reverse lg:flex-row
-          items-center justify-between
-          gap-10 lg:gap-20
-        "
+        className="relative z-10 w-full max-w-[1200px] flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-24"
       >
-        {/* LEFT IMAGE */}
-        <div className="w-full lg:flex-[1.2] flex justify-center">
-          <img
-            src="/dora.jpg"
-            alt="Welcome Character"
-            className="
-              w-[80%] sm:w-[70%] md:w-[60%] lg:w-full
-              max-w-[520px]
-              h-auto
-              drop-shadow-[0_40px_80px_rgba(0,0,0,0.18)]
-            "
-          />
+        {/* LEFT IMAGE CONTAINER */}
+        <div className="w-full lg:flex-1 flex justify-center lg:justify-start">
+          <div style={{ position: "relative" }}>
+             {/* Subtle frame for the image to make it look intentional */}
+             <div style={{
+               position: "absolute",
+               inset: "-10px",
+               border: "1px solid rgba(99, 102, 241, 0.2)",
+               borderRadius: "24px",
+               pointerEvents: "none",
+             }} />
+            <img
+              src="/dora.jpg"
+              alt="Welcome"
+              style={{
+                width: "100%",
+                maxWidth: "480px",
+                height: "auto",
+                borderRadius: "16px",
+                boxShadow: "0 20px 50px rgba(0,0,0,0.5)",
+                display: "block",
+              }}
+            />
+          </div>
         </div>
 
-        {/* RIGHT TEXT */}
+        {/* RIGHT TEXT CONTENT */}
         <div className="w-full lg:flex-1 text-center lg:text-left">
-          {/* ANIMATED HEADING */}
           <h1
-            className="
-              font-extrabold leading-tight
-              text-[2.5rem] sm:text-[3rem] md:text-[3.5rem] lg:text-[4rem]
-              mb-8
-            "
+            style={{
+              fontFamily: "'Outfit', sans-serif",
+              fontSize: "clamp(2.5rem, 5vw, 4.5rem)",
+              fontWeight: 800,
+              lineHeight: 1.1,
+              marginBottom: "1.5rem",
+              background: "linear-gradient(to bottom right, #ffffff 60%, #94a3b8)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
           >
-            {/* LINE 1 */}
-            <div className="flex justify-center lg:justify-start gap-3">
-              <span
-                className="opacity-0 translate-y-6 animate-[fadeUp_0.6s_ease-out_forwards]"
-                style={{ animationDelay: "0s", color: "#FB7185" }}
-              >
-                Welcome
-              </span>
-
-              <span
-                className="opacity-0 translate-y-6 animate-[fadeUp_0.6s_ease-out_forwards]"
-                style={{ animationDelay: "0.3s", color: "#FBBF24" }}
-              >
-                to
-              </span>
+            <div style={{ opacity: 0, transform: "translateY(20px)", animation: "fadeUp 0.8s ease forwards", animationDelay: "0.2s" }}>
+              Welcome to
             </div>
-
-            {/* LINE 2 */}
-            <div className="flex justify-center lg:justify-start gap-3 mt-2">
-              <span
-                className="opacity-0 translate-y-6 animate-[fadeUp_0.6s_ease-out_forwards]"
-                style={{ animationDelay: "0.6s", color: "#EC4899" }}
-              >
-                Hitaishi’s
-              </span>
-
-              <span
-                className="opacity-0 translate-y-6 animate-[fadeUp_0.6s_ease-out_forwards]"
-                style={{ animationDelay: "0.9s", color: "#38BDF8" }}
-              >
-                World
-              </span>
+            <div style={{ opacity: 0, transform: "translateY(20px)", animation: "fadeUp 0.8s ease forwards", animationDelay: "0.4s", color: "#6366f1" }}>
+              Hitaishi’s World
             </div>
           </h1>
+          
+          <p style={{
+            fontSize: "1.125rem",
+            color: "#94a3b8",
+            marginBottom: "2.5rem",
+            maxWidth: "500px",
+            marginRight: "auto",
+            marginLeft: "auto",
+            lgMarginLeft: "0",
+            opacity: 0,
+            animation: "fadeUp 0.8s ease forwards",
+            animationDelay: "0.6s",
+          }} className="lg:mx-0">
+            A showcase of creativity, technical expertise, and professional growth in the world of development.
+          </p>
 
-          {/* BUTTON */}
           <button
             onClick={onEnter}
-            className="
-              w-full sm:w-auto
-              px-10 sm:px-12 py-4
-              font-bold text-gray-800
-              bg-gradient-to-r from-pink-300 to-orange-200
-              shadow-[0_20px_40px_rgba(0,0,0,0.25)]
-              transition-transform duration-300
-              hover:scale-105
-              rounded-xl
-            "
+            style={{
+              padding: "1rem 2.5rem",
+              fontSize: "1.1rem",
+              fontWeight: 600,
+              color: "#ffffff",
+              backgroundColor: "#4f46e5",
+              border: "none",
+              borderRadius: "12px",
+              cursor: "pointer",
+              transition: "all 0.3s ease",
+              boxShadow: "0 10px 15px -3px rgba(79, 70, 229, 0.4)",
+              opacity: 0,
+              animation: "fadeUp 0.8s ease forwards",
+              animationDelay: "0.8s",
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.backgroundColor = "#4338ca";
+              e.currentTarget.style.transform = "translateY(-2px)";
+              e.currentTarget.style.boxShadow = "0 20px 25px -5px rgba(79, 70, 229, 0.4)";
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.backgroundColor = "#4f46e5";
+              e.currentTarget.style.transform = "translateY(0)";
+              e.currentTarget.style.boxShadow = "0 10px 15px -3px rgba(79, 70, 229, 0.4)";
+            }}
           >
-            Get Started →
+            Explore Portfolio →
           </button>
         </div>
       </div>
 
-      {/* KEYFRAMES */}
       <style>
         {`
           @keyframes fadeUp {
-            from {
-              opacity: 0;
-              transform: translateY(24px);
-            }
-            to {
-              opacity: 1;
-              transform: translateY(0);
-            }
+            to { opacity: 1; transform: translateY(0); }
           }
         `}
       </style>

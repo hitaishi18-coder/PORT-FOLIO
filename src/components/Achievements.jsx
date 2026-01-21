@@ -6,7 +6,7 @@ export default function Achievements() {
       description:
         "Designed a water level indicator project demonstrating practical engineering application.",
       image: "/image2.jpeg",
-      emoji: "🥈",
+      label: "Silver Award",
     },
     {
       title: "College Fest Competition",
@@ -14,15 +14,15 @@ export default function Achievements() {
       description:
         "Developed a web platform for event registration and scheduling, securing first position.",
       image: "/fest.png",
-      emoji: "🥇",
+      label: "Winner",
     },
-       {
+    {
       title: "Hospitality Head",
       subtitle: "Department Leadership Role",
       description:
         "Served as the Hospitality Head in my department, managing guest coordination, logistics, and team operations during departmental events.",
       image: "/hospitality.png",
-      emoji: "🤝",
+      label: "Leadership",
     },
     {
       title: "HackerWrath Hackathon",
@@ -30,105 +30,137 @@ export default function Achievements() {
       description:
         "Built a file sharing and real-time chat platform during the hackathon, competing among 60+ teams.",
       image: "/hack.png",
-      emoji: "🏆",
+      label: "High Rank",
     },
-
- 
     {
       title: "International Conference Organization",
       subtitle: "Volunteer & Technical Support",
       description:
         "Contributed to organizing an international conference (DIECAI) held in the department by volunteering and developing the official event website.",
       image: "/event.png",
-      emoji: "🌍",
+      label: "Technical Support",
     },
   ];
 
   return (
     <section
       id="achievements"
-      className="
-        relative
-        py-32 px-6
-        overflow-hidden
-        bg-gradient-to-b from-sky-50 via-blue-50 to-emerald-50
-      "
+      style={{
+        position: "relative",
+        padding: "8rem 1.5rem",
+        overflow: "hidden",
+        backgroundColor: "transparent",
+      }}
     >
-      {/* ===== BACKGROUND BLENDS ===== */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,#bae6fd,transparent_60%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,#fbcfe8,transparent_60%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,#bbf7d0,transparent_60%)]" />
-
-      {/* ===== TITLE ===== */}
-      <h2 className="relative z-10 text-4xl md:text-5xl font-extrabold text-center mb-24">
-        Achievements & <span className="text-pink-400">Prizes</span> 🏅
+      {/* TITLE */}
+      <h2 style={{
+        position: "relative",
+        zIndex: 10,
+        fontSize: "clamp(2rem, 4vw, 3rem)",
+        fontWeight: 800,
+        textAlign: "center",
+        marginBottom: "6rem",
+        fontFamily: "'Outfit', sans-serif",
+      }}>
+        Honors & <span style={{ color: "#6366f1" }}>Recognition</span>
       </h2>
 
-      {/* ===== TROPHY TRAIL ===== */}
-      <div className="relative z-10 max-w-6xl mx-auto flex flex-col gap-20">
+      {/* CONTENT GRID */}
+      <div style={{
+        position: "relative",
+        zIndex: 10,
+        maxWidth: "1100px",
+        margin: "0 auto",
+        display: "flex",
+        flexDirection: "column",
+        gap: "6rem",
+      }}>
         {achievements.map((item, index) => (
           <div
             key={index}
-            className={`
-              flex flex-col md:flex-row items-center gap-10
-              ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}
-            `}
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+              gap: "3rem",
+            }}
+            className={index % 2 === 0 ? "flex-col md:flex-row" : "flex-col md:flex-row-reverse"}
           >
-            {/* ===== IMAGE SIDE ===== */}
-            <div className="relative w-full md:w-1/2 group">
-              <div className="absolute -inset-4 rounded-3xl bg-gradient-to-r from-sky-300 via-pink-300 to-emerald-300 blur-xl opacity-60 group-hover:opacity-90 transition"></div>
-
+            {/* IMAGE SIDE */}
+            <div 
+              style={{ 
+                flex: 1,
+                position: "relative",
+                borderRadius: "24px",
+                overflow: "hidden",
+                boxShadow: "0 20px 40px -10px rgba(0, 0, 0, 0.3)",
+                border: "1px solid rgba(255, 255, 255, 0.1)",
+              }}
+              className="w-full"
+            >
               <img
                 src={item.image}
                 alt={item.title}
-                className="
-                  relative
-                  w-full h-56 md:h-64
-                  object-cover
-                  rounded-3xl
-                  shadow-lg
-                  transition
-                  group-hover:scale-105
-                "
+                style={{
+                  width: "100%",
+                  height: "320px",
+                  objectFit: "cover",
+                  display: "block",
+                  transition: "transform 0.5s ease",
+                }}
+                onMouseOver={(e) => e.currentTarget.style.transform = "scale(1.05)"}
+                onMouseOut={(e) => e.currentTarget.style.transform = "scale(1)"}
               />
-
-              {/* FLOATING EMOJI */}
-              <div className="absolute -top-4 -right-4 text-4xl animate-bounce">
-                {item.emoji}
+              <div style={{
+                position: "absolute",
+                top: "1.5rem",
+                left: "1.5rem",
+                padding: "0.5rem 1rem",
+                backgroundColor: "#6366f1",
+                color: "white",
+                borderRadius: "9999px",
+                fontSize: "0.75rem",
+                fontWeight: 700,
+                textTransform: "uppercase",
+                letterSpacing: "0.05em",
+                boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
+              }}>
+                {item.label}
               </div>
             </div>
 
-            {/* ===== CONTENT SIDE ===== */}
-            <div className="w-full md:w-1/2 text-center md:text-left">
-              <h3 className="text-2xl md:text-3xl font-extrabold text-gray-800 mb-2">
+            {/* CONTENT SIDE */}
+            <div style={{ flex: 1 }} className="text-center md:text-left">
+              <h3 style={{ 
+                fontSize: "1.75rem", 
+                fontWeight: 700, 
+                marginBottom: "0.5rem",
+                fontFamily: "'Outfit', sans-serif",
+                color: "#6366f1",
+              }}>
                 {item.title}
               </h3>
-
-              <p className="text-pink-400 font-semibold mb-4">
+              <div style={{ 
+                fontSize: "1.125rem", 
+                fontWeight: 600, 
+                opacity: 0.8,
+                marginBottom: "1.5rem",
+              }}>
                 {item.subtitle}
-              </p>
-
-              <p className="text-gray-700 leading-relaxed max-w-md mx-auto md:mx-0">
+              </div>
+              <p style={{ 
+                fontSize: "1rem", 
+                lineHeight: 1.7, 
+                opacity: 0.7,
+                maxWidth: "500px",
+                margin: index % 2 === 0 ? "0" : "0 0 0 auto",
+              }} className="md:mx-0">
                 {item.description}
               </p>
-
-              {/* BADGE */}
-              <div className="inline-block mt-6 px-5 py-2 rounded-full bg-gradient-to-r from-sky-200 to-emerald-200 text-gray-800 font-semibold shadow-md">
-                🎉 Achievement Unlocked
-              </div>
             </div>
           </div>
         ))}
       </div>
-
-      {/* ===== SOFT FLOAT ANIMATION ===== */}
-      <style>{`
-        @keyframes floatSlow {
-          0% { transform: translateY(0); }
-          50% { transform: translateY(-8px); }
-          100% { transform: translateY(0); }
-        }
-      `}</style>
     </section>
   );
 }

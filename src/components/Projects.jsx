@@ -60,160 +60,162 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="
-        relative
-        py-32 px-6
-        overflow-hidden
-        bg-gradient-to-b from-sky-50 via-blue-50 to-emerald-50
-      "
+      style={{
+        position: "relative",
+        padding: "8rem 1.5rem",
+        overflow: "hidden",
+        backgroundColor: "transparent",
+      }}
     >
-      {/* FLOAT ANIMATION */}
-      <style>
-        {`
-          @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-18px); }
-          }
-        `}
-      </style>
-
-      {/* BACKGROUND BLENDS */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,#bae6fd,transparent_60%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,#fbcfe8,transparent_60%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,#bbf7d0,transparent_60%)]" />
-
-      {/* 🐶 DOG IMAGE — unchanged */}
-      <img
-        src="/kuta.png"
-        alt="cute dog"
-        className="
-          pointer-events-none
-          absolute
-          top-24 left-6
-          w-40 md:w-56
-          opacity-80
-          rotate-[-12deg]
-          animate-[float_6s_ease-in-out_infinite]
-          z-0
-        "
-      />
-
-      {/*  DORA IMAGE — FIXED */}
-      <img
-        src="/avatar.jpg"
-        alt="dora avatar"
-        className="
-          pointer-events-none
-          absolute
-          -bottom-4
-          right-24
-          w-36 md:w-44 lg:w-52
-          opacity-90
-          rotate-0
-          animate-[float_7s_ease-in-out_infinite]
-          z-0
-        "
-      />
-
       {/* TITLE */}
-      <h2 className="relative z-10 text-4xl md:text-5xl font-extrabold text-center mb-20">
-        My <span className="text-pink-400">Projects</span> 🚀
+      <h2 style={{
+        position: "relative",
+        zIndex: 10,
+        fontSize: "clamp(2rem, 4vw, 3rem)",
+        fontWeight: 800,
+        textAlign: "center",
+        marginBottom: "6rem",
+        fontFamily: "'Outfit', sans-serif",
+      }}>
+        Featured <span style={{ color: "#6366f1" }}>Projects</span>
       </h2>
 
       {/* PROJECT GRID */}
-      <div className="relative z-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-12 max-w-7xl mx-auto">
+      <div style={{
+        position: "relative",
+        zIndex: 10,
+        maxWidth: "1200px",
+        margin: "0 auto",
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+        gap: "2.5rem",
+      }}>
         {projects.map((project, index) => (
           <div
             key={index}
-            className="
-              group
-              relative
-              rounded-[2rem]
-              overflow-hidden
-              bg-white/70
-              backdrop-blur-md
-              border border-white/60
-              shadow-lg
-              transition-all duration-500
-              hover:-translate-y-3
-              hover:shadow-[0_30px_60px_rgba(0,0,0,0.18)]
-            "
+            className="group"
+            style={{
+              position: "relative",
+              borderRadius: "24px",
+              overflow: "hidden",
+              backgroundColor: "rgba(255, 255, 255, 0.03)",
+              border: "1px solid rgba(255, 255, 255, 0.1)",
+              transition: "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+              display: "flex",
+              flexDirection: "column",
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.transform = "translateY(-10px)";
+              e.currentTarget.style.borderColor = "rgba(99, 102, 241, 0.4)";
+              e.currentTarget.style.boxShadow = "0 30px 60px -12px rgba(0, 0, 0, 0.5)";
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.transform = "translateY(0)";
+              e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.1)";
+              e.currentTarget.style.boxShadow = "none";
+            }}
           >
-            {/* IMAGE */}
-            <div className="overflow-hidden">
+            {/* IMAGE CONTAINER */}
+            <div style={{ position: "relative", height: "240px", overflow: "hidden" }}>
               <img
                 src={project.image}
                 alt={project.title}
-                className="
-                  w-full h-56 object-cover
-                  transition duration-700
-                  group-hover:scale-110
-                "
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  transition: "transform 0.6s ease",
+                }}
+                className="group-hover:scale-110"
               />
+              
+              {/* OVERLAY */}
+              <div 
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  backgroundColor: "rgba(9, 9, 11, 0.7)",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: "1rem",
+                  opacity: 0,
+                  transition: "opacity 0.3s ease",
+                  backdropFilter: "blur(4px)",
+                }}
+                className="group-hover:opacity-100"
+              >
+                {!project.isGraphic && (
+                  <>
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        padding: "0.6rem 1.25rem",
+                        borderRadius: "9999px",
+                        backgroundColor: "#6366f1",
+                        color: "#ffffff",
+                        fontWeight: 600,
+                        textDecoration: "none",
+                        fontSize: "0.875rem",
+                        transition: "transform 0.2s",
+                      }}
+                      onMouseOver={(e) => e.currentTarget.style.transform = "scale(1.05)"}
+                      onMouseOut={(e) => e.currentTarget.style.transform = "scale(1)"}
+                    >
+                      Live Preview 🚀
+                    </a>
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        padding: "0.6rem 1.25rem",
+                        borderRadius: "9999px",
+                        backgroundColor: "white",
+                        color: "#18181b",
+                        fontWeight: 600,
+                        textDecoration: "none",
+                        fontSize: "0.875rem",
+                        transition: "transform 0.2s",
+                      }}
+                      onMouseOver={(e) => e.currentTarget.style.transform = "scale(1.05)"}
+                      onMouseOut={(e) => e.currentTarget.style.transform = "scale(1)"}
+                    >
+                      Source Code 💻
+                    </a>
+                  </>
+                )}
+                {project.isGraphic && (
+                  <span style={{ color: "white", fontWeight: 600 }}>Creative Portfolio Piece</span>
+                )}
+              </div>
             </div>
 
-            {/* OVERLAY — ONLY FOR CODING PROJECTS */}
-            {!project.isGraphic && (
-              <div
-                className="
-                  absolute inset-0
-                  bg-gradient-to-t from-sky-500/80 via-blue-500/40 to-transparent
-                  opacity-0
-                  group-hover:opacity-100
-                  transition-all duration-500
-                  flex flex-col justify-center items-center
-                  gap-4
-                "
-              >
-                <a
-                  href={project.live}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="
-                    px-6 py-3
-                    rounded-full
-                    bg-white
-                    text-blue-600 font-semibold
-                    shadow-md
-                    hover:scale-110
-                    transition
-                  "
-                >
-                  🚀 Live Demo
-                </a>
-
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="
-                    px-6 py-3
-                    rounded-full
-                    bg-white/90
-                    text-gray-800 font-semibold
-                    shadow-md
-                    hover:scale-110
-                    transition
-                  "
-                >
-                  💻 GitHub Code
-                </a>
-              </div>
-            )}
-
             {/* INFO */}
-            <div className="p-6 text-center">
-              <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-2">
+            <div style={{ padding: "1.5rem", flex: 1, display: "flex", flexDirection: "column" }}>
+              <h3 style={{ 
+                fontSize: "1.25rem", 
+                fontWeight: 700, 
+                marginBottom: "0.5rem",
+                color: "inherit",
+              }}>
                 {project.title}
               </h3>
 
-              <p className="text-sm text-blue-500 font-semibold">
+              <p style={{ 
+                fontSize: "0.8125rem", 
+                fontWeight: 600, 
+                color: "#6366f1",
+                textTransform: "uppercase",
+                letterSpacing: "0.05em",
+                marginTop: "auto",
+              }}>
                 {project.tech}
               </p>
             </div>
-
-            {/* STAR */}
-            <div className="absolute top-4 right-4 text-2xl opacity-70">⭐</div>
           </div>
         ))}
       </div>

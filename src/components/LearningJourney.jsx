@@ -65,86 +65,120 @@ export default function LearningJourney() {
   return (
     <section
       id="learning"
-      className="
-        relative
-        py-32 px-6
-        overflow-hidden
-
-        /* BASE BLEND */
-        bg-gradient-to-b from-yellow-50 via-pink-50 to-sky-50
-      "
+      style={{
+        position: "relative",
+        padding: "8rem 1.5rem",
+        overflow: "hidden",
+        backgroundColor: "transparent",
+      }}
     >
-      {/* ===== COLOR BLEND LAYERS ===== */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,#fde68a,transparent_65%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,#fbcfe8,transparent_65%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,#bae6fd,transparent_65%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,#bbf7d0,transparent_65%)]" />
-
-      {/* ===== HEADING ===== */}
-      <h2 className="relative z-10 text-4xl md:text-5xl font-extrabold text-center mb-24">
-        My <span className="text-pink-400">Learning Journey</span> ✨
+      {/* HEADING */}
+      <h2 style={{
+        position: "relative",
+        zIndex: 10,
+        fontSize: "clamp(2rem, 4vw, 3rem)",
+        fontWeight: 800,
+        textAlign: "center",
+        marginBottom: "6rem",
+        fontFamily: "'Outfit', sans-serif",
+      }}>
+        Learning <span style={{ color: "#6366f1" }}>Evolution</span>
       </h2>
 
-      {/* ===== TIMELINE ===== */}
-      <div className="relative z-10 max-w-4xl mx-auto flex flex-col gap-16">
-        {journey.map((item, index) => (
-          <div key={index} className="relative pl-16 group">
-            
-            {/* DOT */}
-            <div
-              className="
-                absolute left-2 top-7
-                w-6 h-6
-                rounded-full
-                bg-gradient-to-r from-pink-400 via-yellow-300 to-sky-300
-                shadow-md
-                group-hover:scale-110
-                transition
-              "
-            />
+      {/* TIMELINE */}
+      <div style={{
+        position: "relative",
+        zIndex: 10,
+        maxWidth: "800px",
+        margin: "0 auto",
+      }}>
+        {/* Continuous Line */}
+        <div style={{
+          position: "absolute",
+          left: "20px",
+          top: "30px",
+          bottom: "30px",
+          width: "2px",
+          backgroundColor: "#6366f1",
+          opacity: 0.2,
+        }} />
 
-            {/* LINE */}
-            {index !== journey.length - 1 && (
+        <div style={{ display: "flex", flexDirection: "column", gap: "3rem" }}>
+          {journey.map((item, index) => (
+            <div key={index} style={{ position: "relative", paddingLeft: "5rem" }} className="group">
+              
+              {/* HUB DOT */}
               <div
-                className="
-                  absolute left-[17px] top-14
-                  h-full w-[4px]
-                  rounded-full
-                  bg-gradient-to-b from-pink-300 via-yellow-200 to-sky-300
-                  opacity-70
-                "
+                style={{
+                  position: "absolute",
+                  left: "9px",
+                  top: "32px",
+                  width: "24px",
+                  height: "24px",
+                  borderRadius: "50%",
+                  backgroundColor: "#09090b",
+                  border: "2px solid #6366f1",
+                  boxShadow: "0 0 10px rgba(99, 102, 241, 0.3)",
+                  transition: "all 0.3s ease",
+                  zIndex: 10,
+                }}
+                className="group-hover:scale-125"
               />
-            )}
 
-            {/* CARD */}
-            <div
-              className="
-                relative
-                p-8
-                rounded-[2rem]
-                bg-white/60
-                backdrop-blur-lg
-                border border-white/40
-                shadow-[0_20px_40px_rgba(0,0,0,0.12)]
-                transition
-                group-hover:-translate-y-1
-                group-hover:shadow-[0_30px_60px_rgba(0,0,0,0.18)]
-              "
-            >
-              <span className="inline-block mb-3 px-4 py-1 text-xs font-bold rounded-full bg-pink-100 text-pink-500">
-                {item.year}
-              </span>
+              {/* CARD */}
+              <div
+                style={{
+                  padding: "1.5rem 2rem",
+                  borderRadius: "20px",
+                  backgroundColor: "rgba(255, 255, 255, 0.03)",
+                  border: "1px solid rgba(255, 255, 255, 0.05)",
+                  backdropFilter: "blur(4px)",
+                  transition: "all 0.3s ease",
+                }}
+                onMouseOver={(e) => {
+                  e.currentTarget.style.backgroundColor = "rgba(99, 102, 241, 0.05)";
+                  e.currentTarget.style.borderColor = "rgba(99, 102, 241, 0.2)";
+                  e.currentTarget.style.transform = "translateX(5px)";
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.03)";
+                  e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.05)";
+                  e.currentTarget.style.transform = "translateX(0)";
+                }}
+              >
+                <div style={{ 
+                  display: "inline-block",
+                  padding: "0.25rem 0.75rem",
+                  borderRadius: "99px",
+                  fontSize: "0.75rem",
+                  fontWeight: 700,
+                  color: "#6366f1",
+                  backgroundColor: "rgba(99, 102, 241, 0.1)",
+                  marginBottom: "0.75rem",
+                }}>
+                  {item.year}
+                </div>
 
-              <h3 className="text-xl md:text-2xl font-bold text-gray-800 mb-2">
-                {item.title}
-              </h3>
+                <h3 style={{ 
+                  fontSize: "1.25rem", 
+                  fontWeight: 700, 
+                  marginBottom: "0.5rem",
+                  fontFamily: "'Outfit', sans-serif",
+                }}>
+                  {item.title}
+                </h3>
 
-              <p className="text-sm md:text-base text-gray-700 leading-relaxed">
-                {item.description}
-              </p>
+                <p style={{ 
+                  fontSize: "0.875rem", 
+                  lineHeight: 1.6, 
+                  opacity: 0.7,
+                }}>
+                  {item.description}
+                </p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );

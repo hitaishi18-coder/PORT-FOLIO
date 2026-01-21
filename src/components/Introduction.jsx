@@ -1,103 +1,76 @@
 export default function Introduction() {
   return (
     <section
-      className="
-        relative
-        min-h-screen
-        flex justify-center items-center
-        px-6 md:px-12
-        py-24
-        overflow-hidden
-        bg-gradient-to-b from-yellow-50 via-pink-50 to-sky-50
-      "
+      id="introduction"
+      style={{
+        position: "relative",
+        minHeight: "80vh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        padding: "6rem 1.5rem",
+        overflow: "hidden",
+        backgroundColor: "transparent",
+      }}
     >
-      {/* ===== BACKGROUND BLENDS ===== */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,#fde68a,transparent_60%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,#bae6fd,transparent_60%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,#fbcfe8,transparent_60%)]" />
-
       {/* ===== MAIN WRAPPER ===== */}
-      <div className="relative z-10 max-w-6xl w-full flex flex-col md:flex-row items-center gap-14">
+      <div className="relative z-10 max-w-6xl w-full flex flex-col md:flex-row items-center gap-16">
 
         {/* ===== LEFT : PHOTO ===== */}
         <div className="relative shrink-0">
-          <div className="absolute -inset-4 rounded-full bg-gradient-to-r from-pink-300 via-yellow-200 to-sky-300 blur-lg opacity-70"></div>
+          <div style={{
+            position: "absolute",
+            inset: "-1rem",
+            borderRadius: "50%",
+            background: "linear-gradient(45deg, #4f46e5, #8b5cf6)",
+            opacity: 0.15,
+            filter: "blur(20px)",
+          }} />
           <img
             src="/hitaishi-image.jpeg"
             alt="Hitaishi"
-            className="relative w-56 h-56 md:w-82 md:h-89 rounded-full object-cover border-4 border-pink-400 shadow-lg"
+            style={{
+              position: "relative",
+              width: "18rem",
+              height: "18rem",
+              borderRadius: "50%",
+              objectFit: "cover",
+              border: "4px solid rgba(99, 102, 241, 0.5)",
+              boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+            }}
           />
         </div>
 
-        {/* ===== RIGHT : CONTENT (RELATIVE FOR TOYS) ===== */}
+        {/* ===== RIGHT : CONTENT ===== */}
         <div className="relative max-w-xl text-center md:text-left">
-
-          {/* ==== TOYS (RELATIVE TO CONTENT) ==== */}
+          {/* TOYS ARE HIDDEN TO MAINTAIN PROFESSIONAL LOOK */}
           
-          {/* Toy 1 – near heading */}
-          <img
-            src="/kuta.png"
-            alt="kuta"
-            className="
-              hidden md:block
-              absolute top-70 -right-65
-              w-70
-              opacity-85
-              pointer-events-none
-            "
-          />
-
-          {/* Toy 2 – middle right */}
-          <img
-            src="/swiper.png"
-            alt=""
-            className="
-              hidden md:block
-              absolute top-1/2 -right-75
-              -translate-y-1/2
-              w-70
-              opacity-80
-              pointer-events-none
-            "
-          />
-
-          {/* Toy 3 – bottom right */}
-          <img
-            src="/Bag.png"
-            alt=""
-            className="
-              hidden md:block
-              absolute -bottom-10 -right-20
-              w-42
-              opacity-85
-              pointer-events-none
-            "
-          />
-
-          {/* Toy 4 – bottom center */}
-          <img
-            src="/bandar.png"
-            alt=""
-            className="
-              hidden md:block
-              absolute -bottom-15 -right-98
-              -translate-x-1/2
-              w-47
-              opacity-90
-              pointer-events-none
-            "
-          />
-
-          {/* ===== TEXT ===== */}
-          <h1 className="text-4xl md:text-6xl font-extrabold mb-3">
-            Hi, I’m <span className="text-pink-400">Hitaishi</span> 👋
+          <h1 style={{
+            fontSize: "clamp(2.5rem, 5vw, 4rem)",
+            fontWeight: 800,
+            marginBottom: "0.75rem",
+            fontFamily: "'Outfit', sans-serif",
+          }}>
+            Hi, I’m <span style={{ color: "#6366f1" }}>Hitaishi</span> 👋
           </h1>
 
-          <h2 className="text-lg md:text-2xl font-semibold text-pink-300 mb-5">
+          <h2 style={{
+            fontSize: "1.25rem",
+            fontWeight: 600,
+            color: "#8b5cf6",
+            marginBottom: "1.5rem",
+            textTransform: "uppercase",
+            letterSpacing: "0.05em",
+          }}>
             Software Engineer & Full Stack Developer
           </h2>
 
-          <p className="text-base md:text-lg text-gray-700 mb-8 leading-relaxed">
+          <p style={{
+            fontSize: "1.125rem",
+            lineHeight: 1.7,
+            marginBottom: "2.5rem",
+            opacity: 0.9,
+          }}>
             I am a Software Engineer and Full Stack Developer with hands-on
             experience in building scalable web applications using the MERN stack.
             I have a strong foundation in Data Structures & Algorithms, Object-
@@ -113,13 +86,24 @@ export default function Introduction() {
             <a
               href="/resume.pdf"
               download
-              className="
-                px-6 py-3 rounded-full
-                bg-gradient-to-r from-pink-400 to-pink-500
-                text-white font-semibold
-                shadow-lg
-                hover:scale-105 transition
-              "
+              style={{
+                padding: "0.875rem 1.75rem",
+                borderRadius: "9999px",
+                backgroundColor: "#4f46e5",
+                color: "#ffffff",
+                fontWeight: 600,
+                textDecoration: "none",
+                boxShadow: "0 10px 15px -3px rgba(79, 70, 229, 0.4)",
+                transition: "all 0.2s",
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.transform = "translateY(-2px)";
+                e.currentTarget.style.backgroundColor = "#4338ca";
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.backgroundColor = "#4f46e5";
+              }}
             >
               📄 Download Resume
             </a>
@@ -127,11 +111,19 @@ export default function Introduction() {
             <a
               href="https://github.com/hitaishi18-coder"
               target="_blank"
-              className="
-                px-6 py-3 rounded-full
-                bg-white text-gray-800 font-semibold
-                shadow-md hover:bg-gray-100 hover:scale-105 transition
-              "
+              rel="noreferrer"
+              style={{
+                padding: "0.875rem 1.75rem",
+                borderRadius: "9999px",
+                backgroundColor: "rgba(255, 255, 255, 0.1)",
+                border: "1px solid rgba(255, 255, 255, 0.1)",
+                backdropFilter: "blur(4px)",
+                fontWeight: 600,
+                textDecoration: "none",
+                transition: "all 0.2s",
+              }}
+              onMouseOver={(e) => e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.2)"}
+              onMouseOut={(e) => e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.1)"}
             >
               💻 GitHub
             </a>
@@ -139,11 +131,19 @@ export default function Introduction() {
             <a
               href="https://www.linkedin.com/in/hitaishi-lohtia-99a219256/"
               target="_blank"
-              className="
-                px-6 py-3 rounded-full
-                bg-white text-gray-800 font-semibold
-                shadow-md hover:bg-gray-100 hover:scale-105 transition
-              "
+              rel="noreferrer"
+              style={{
+                padding: "0.875rem 1.75rem",
+                borderRadius: "9999px",
+                backgroundColor: "rgba(255, 255, 255, 0.1)",
+                border: "1px solid rgba(255, 255, 255, 0.1)",
+                backdropFilter: "blur(4px)",
+                fontWeight: 600,
+                textDecoration: "none",
+                transition: "all 0.2s",
+              }}
+              onMouseOver={(e) => e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.2)"}
+              onMouseOut={(e) => e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.1)"}
             >
               🔗 LinkedIn
             </a>

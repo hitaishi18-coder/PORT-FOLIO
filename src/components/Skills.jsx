@@ -58,87 +58,124 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="
-        relative
-        py-32 px-6
-        overflow-hidden
-
-        /* BLUE–PINK–GREEN BASE */
-        bg-gradient-to-b from-sky-50 via-blue-50 to-emerald-50
-      "
+      style={{
+        position: "relative",
+        padding: "8rem 1.5rem",
+        overflow: "hidden",
+        backgroundColor: "transparent",
+      }}
     >
-      {/* ===== SOFT COLOR BLENDS ===== */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,#bae6fd,transparent_60%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,#fbcfe8,transparent_60%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,#bbf7d0,transparent_60%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,#c7d2fe,transparent_60%)]" />
-
       {/* ===== TITLE ===== */}
-      <h2 className="relative z-10 text-4xl md:text-5xl font-extrabold text-center mb-24">
-        My <span className="text-pink-400">Skills</span> ⭐
+      <h2 style={{
+        position: "relative",
+        zIndex: 10,
+        fontSize: "clamp(2rem, 4vw, 3rem)",
+        fontWeight: 800,
+        textAlign: "center",
+        marginBottom: "6rem",
+        fontFamily: "'Outfit', sans-serif",
+      }}>
+        Technical <span style={{ color: "#6366f1" }}>Expertise</span>
       </h2>
 
       {/* ===== CONTENT ===== */}
-      <div className="relative z-10 max-w-6xl mx-auto flex flex-col gap-28">
+      <div style={{
+        position: "relative",
+        zIndex: 10,
+        maxWidth: "1100px",
+        margin: "0 auto",
+        display: "flex",
+        flexDirection: "column",
+        gap: "5rem",
+      }}>
         {skills.map((group, index) => (
-          <div key={index} className="text-center">
-            
-            {/* CATEGORY */}
-            <h3 className="inline-flex items-center gap-2 mb-10 px-6 py-2 text-xl md:text-2xl font-bold rounded-full bg-white/70 text-blue-500 shadow-md backdrop-blur">
-              🧭 {group.category}
+          <div key={index}>
+            <h3 style={{
+              fontSize: "1.25rem",
+              fontWeight: 700,
+              marginBottom: "2rem",
+              paddingBottom: "0.5rem",
+              borderBottom: "2px solid rgba(99, 102, 241, 0.2)",
+              display: "inline-block",
+              color: "#6366f1",
+            }}>
+              {group.category}
             </h3>
 
-            {/* SKILLS */}
-            <div className="flex flex-wrap justify-center gap-5">
+            <div style={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "1.25rem",
+            }}>
               {group.items.map((skill, i) => (
-                <div key={i} className="relative group">
-                  
-                  {/* SKILL CARD */}
+                <div 
+                  key={i} 
+                  className="group"
+                  style={{ position: "relative" }}
+                >
                   <div
-                    className="
-                      px-6 py-4
-                      rounded-2xl
-                      bg-white/70
-                      backdrop-blur-md
-                      border border-white/60
-                      font-semibold text-gray-800
-                      shadow-md
-                      cursor-pointer
-                      transition
-                      hover:scale-110
-                      hover:-translate-y-1
-                      hover:bg-gradient-to-r hover:from-sky-100 hover:to-emerald-100
-                    "
+                    style={{
+                      padding: "0.75rem 1.5rem",
+                      borderRadius: "12px",
+                      backgroundColor: "rgba(255, 255, 255, 0.05)",
+                      border: "1px solid rgba(255, 255, 255, 0.1)",
+                      backdropFilter: "blur(8px)",
+                      fontWeight: 600,
+                      cursor: "help",
+                      transition: "all 0.3s ease",
+                    }}
+                    onMouseOver={(e) => {
+                      e.currentTarget.style.backgroundColor = "rgba(99, 102, 241, 0.1)";
+                      e.currentTarget.style.borderColor = "rgba(99, 102, 241, 0.5)";
+                      e.currentTarget.style.transform = "translateY(-4px)";
+                    }}
+                    onMouseOut={(e) => {
+                      e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.05)";
+                      e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.1)";
+                      e.currentTarget.style.transform = "translateY(0)";
+                    }}
                   >
                     {skill.name}
-
-                    {/* MANUAL STARS */}
-                    <div className="mt-2 flex justify-center gap-1 text-sm">
-                      {[1, 2, 3].map((n) => (
-                        <span key={n}>
-                          {n <= skill.level ? "⭐" : "☆"}
-                        </span>
-                      ))}
+                    
+                    {/* Minimal Level Indicator */}
+                    <div style={{
+                      marginTop: "0.5rem",
+                      height: "3px",
+                      width: "100%",
+                      backgroundColor: "rgba(255, 255, 255, 0.1)",
+                      borderRadius: "2px",
+                      overflow: "hidden",
+                    }}>
+                      <div style={{
+                        height: "100%",
+                        width: `${(skill.level / 3) * 100}%`,
+                        backgroundColor: "#6366f1",
+                        borderRadius: "2px",
+                      }} />
                     </div>
                   </div>
 
                   {/* TOOLTIP */}
                   <div
-                    className="
-                      absolute left-1/2 -translate-x-1/2
-                      top-full mt-3
-                      px-4 py-2
-                      rounded-xl
-                      bg-gradient-to-r from-sky-400 to-emerald-400
-                      text-white text-sm
-                      opacity-0 scale-90
-                      pointer-events-none
-                      transition
-                      group-hover:opacity-100
-                      group-hover:scale-100
-                      whitespace-nowrap
-                      shadow-lg
-                    "
+                    className="opacity-0 group-hover:opacity-100 scale-95 group-hover:scale-100"
+                    style={{
+                      position: "absolute",
+                      bottom: "100%",
+                      left: "50%",
+                      transform: "translateX(-50%)",
+                      marginBottom: "1rem",
+                      padding: "0.5rem 1rem",
+                      borderRadius: "8px",
+                      backgroundColor: "#1e1e2e",
+                      color: "#ffffff",
+                      fontSize: "0.75rem",
+                      fontWeight: 500,
+                      pointerEvents: "none",
+                      transition: "all 0.2s ease",
+                      whiteSpace: "nowrap",
+                      boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.3)",
+                      zIndex: 20,
+                    }}
                   >
                     {skill.tip}
                   </div>

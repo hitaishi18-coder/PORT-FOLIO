@@ -9,227 +9,243 @@ export default function AiAssistant() {
       from: "bot",
       type: "text",
       content:
-        "Hi 👋 I’m Hitaishi’s assistant. You can ask me about skills, projects, achievements, certifications, or contact details.",
+        "Hello! I am Hitaishi's portfolio assistant. How can I help you today?",
     },
   ]);
 
-  /* 🔹 SUGGESTED QUESTIONS */
   const suggestions = [
     "What are your skills?",
     "Tell me about your projects",
     "What achievements do you have?",
     "Which certifications do you hold?",
-    "Share your GitHub profile",
     "How can I contact you?",
   ];
 
-  /* 🔹 ANSWER LOGIC */
   const getAnswer = (question) => {
     const q = question.toLowerCase();
-
     if (q.includes("skill")) {
-      return {
-        type: "list",
-        title: "Hitaishi’s Skills",
-        items: resumeData.skills,
-      };
+      return { type: "list", title: "Technical Expertise", items: resumeData.skills };
     }
-
     if (q.includes("project")) {
-      return {
-        type: "list",
-        title: "Projects",
-        items: resumeData.projects,
-      };
+      return { type: "list", title: "Key Projects", items: resumeData.projects };
     }
-
     if (q.includes("achievement") || q.includes("award")) {
-      return {
-        type: "list",
-        title: "Achievements",
-        items: resumeData.achievements,
-      };
+      return { type: "list", title: "Recognition", items: resumeData.achievements };
     }
-
     if (q.includes("certification")) {
-      return {
-        type: "list",
-        title: "Certifications",
-        items: resumeData.certifications,
-      };
+      return { type: "list", title: "Certifications", items: resumeData.certifications };
     }
-
     if (q.includes("github")) {
-      return {
-        type: "link",
-        title: "GitHub Profile",
-        url: resumeData.contact.github,
-      };
+      return { type: "link", title: "GitHub Profile", url: resumeData.contact.github };
     }
-
     if (q.includes("linkedin")) {
-      return {
-        type: "link",
-        title: "LinkedIn Profile",
-        url: resumeData.contact.linkedin,
-      };
+      return { type: "link", title: "LinkedIn Profile", url: resumeData.contact.linkedin };
     }
-
     if (q.includes("contact") || q.includes("email")) {
-      return {
-        type: "text",
-        content: `📧 You can contact Hitaishi at ${resumeData.contact.email}`,
-      };
+      return { type: "text", content: `You can reach Hitaishi via email at ${resumeData.contact.email}` };
     }
-
-    if (q.includes("name")) {
-      return {
-        type: "text",
-        content: `Her name is ${resumeData.name}, and she is a ${resumeData.role}.`,
-      };
-    }
-
-    return {
-      type: "text",
-      content:
-        "I can help with skills, projects, achievements, certifications, or contact details 😊",
-    };
+    return { type: "text", content: "I'm specialized in answering questions about Hitaishi's professional background, skills, and projects." };
   };
 
-  /* 🔹 SEND MESSAGE */
   const sendMessage = (text) => {
     if (!text.trim()) return;
-
-    const userMsg = {
-      from: "user",
-      type: "text",
-      content: text,
-    };
-
-    const botMsg = {
-      from: "bot",
-      ...getAnswer(text),
-    };
-
+    const userMsg = { from: "user", type: "text", content: text };
+    const botMsg = { from: "bot", ...getAnswer(text) };
     setMessages((prev) => [...prev, userMsg, botMsg]);
     setInput("");
   };
 
   return (
     <>
-      {/* ===== STICKY BUTTON ===== */}
       <button
         onClick={() => setOpen(true)}
-        className="
-          fixed left-0 top-1/2 -translate-y-1/2 z-[999]
-          px-4 py-3 rounded-r-2xl
-          bg-gradient-to-r from-pink-400 to-sky-400
-          text-white font-semibold shadow-xl
-          hover:scale-105 transition
-        "
+        style={{
+          position: "fixed",
+          left: "0",
+          top: "85%",
+          transform: "translateY(-50%)",
+          zIndex: 999,
+          padding: "0.75rem 1rem",
+          borderRadius: "0 12px 12px 0",
+          backgroundColor: "#6366f1",
+          color: "white",
+          border: "none",
+          fontWeight: 600,
+          boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
+          cursor: "pointer",
+          transition: "all 0.3s ease",
+          display: "flex",
+          alignItems: "center",
+          gap: "0.5rem",
+        }}
+        onMouseOver={(e) => e.currentTarget.style.paddingLeft = "1.5rem"}
+        onMouseOut={(e) => e.currentTarget.style.paddingLeft = "1rem"}
       >
-        🤖 Ask
+        <span>AI</span> Assistant
       </button>
 
-      {/* ===== CHAT PANEL ===== */}
       {open && (
-        <div className="fixed inset-0 z-[9999] flex">
-          {/* OVERLAY */}
+        <div style={{
+          position: "fixed",
+          inset: 0,
+          zIndex: 9999,
+          display: "flex",
+        }}>
           <div
             onClick={() => setOpen(false)}
-            className="absolute inset-0 bg-black/30 backdrop-blur-sm"
+            style={{
+              position: "absolute",
+              inset: 0,
+              backgroundColor: "rgba(0, 0, 0, 0.2)",
+              backdropFilter: "blur(4px)",
+            }}
           />
 
-          {/* PANEL */}
-          <div className="relative ml-auto w-full sm:w-[420px] h-full bg-white flex flex-col shadow-2xl">
-            {/* HEADER */}
-            <div className="p-4 bg-gradient-to-r from-pink-300 to-sky-300 flex justify-between">
-              <h3 className="font-bold text-gray-800">
-                🤖 Portfolio Assistant
-              </h3>
-              <button onClick={() => setOpen(false)}>✖</button>
+          <div style={{
+            position: "relative",
+            marginLeft: "auto",
+            width: "100%",
+            maxWidth: "400px",
+            height: "100%",
+            backgroundColor: "#09090b",
+            display: "flex",
+            flexDirection: "column",
+            boxShadow: "-10px 0 30px rgba(0, 0, 0, 0.5)",
+            borderLeft: "1px solid rgba(255, 255, 255, 0.1)",
+            fontFamily: "'Inter', sans-serif",
+          }}>
+            <div style={{
+              padding: "1.5rem",
+              borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}>
+              <h3 style={{ margin: 0, fontSize: "1rem", fontWeight: 700, color: "#6366f1" }}>Assistant</h3>
+              <button 
+                onClick={() => setOpen(false)}
+                style={{ 
+                  background: "none", 
+                  border: "none", 
+                  color: "white", 
+                  cursor: "pointer",
+                  fontSize: "1.25rem",
+                  opacity: 0.5,
+                }}
+              >
+                ×
+              </button>
             </div>
 
-            {/* CHAT */}
-            <div className="flex-1 p-4 space-y-4 overflow-y-auto text-sm">
-              {/* SUGGESTIONS */}
-              <div className="flex flex-wrap gap-2">
+            <div style={{
+              flex: 1,
+              padding: "1.5rem",
+              overflowY: "auto",
+              display: "flex",
+              flexDirection: "column",
+              gap: "1.5rem",
+            }}>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem", marginBottom: "0.5rem" }}>
                 {suggestions.map((q, i) => (
                   <button
                     key={i}
                     onClick={() => sendMessage(q)}
-                    className="
-                      px-3 py-1
-                      text-xs font-semibold
-                      rounded-full
-                      bg-sky-100 text-sky-700
-                      hover:bg-sky-200 transition
-                    "
+                    style={{
+                      padding: "0.4rem 0.8rem",
+                      fontSize: "0.7rem",
+                      fontWeight: 600,
+                      borderRadius: "99px",
+                      backgroundColor: "rgba(99, 102, 241, 0.1)",
+                      color: "#6366f1",
+                      border: "1px solid rgba(99, 102, 241, 0.2)",
+                      cursor: "pointer",
+                      transition: "all 0.2s ease",
+                    }}
+                    onMouseOver={(e) => {
+                      e.currentTarget.style.backgroundColor = "rgba(99, 102, 241, 0.2)";
+                    }}
+                    onMouseOut={(e) => {
+                      e.currentTarget.style.backgroundColor = "rgba(99, 102, 241, 0.1)";
+                    }}
                   >
                     {q}
                   </button>
                 ))}
               </div>
 
-              {/* MESSAGES */}
               {messages.map((msg, i) => (
                 <div
                   key={i}
-                  className={`p-3 rounded-xl max-w-[85%] ${
-                    msg.from === "bot"
-                      ? "bg-sky-100"
-                      : "bg-pink-100 ml-auto"
-                  }`}
+                  style={{
+                    padding: "1rem",
+                    borderRadius: "16px",
+                    maxWidth: "85%",
+                    fontSize: "0.9rem",
+                    lineHeight: 1.5,
+                    backgroundColor: msg.from === "bot" ? "rgba(255, 255, 255, 0.03)" : "#6366f1",
+                    color: "white",
+                    alignSelf: msg.from === "bot" ? "flex-start" : "flex-end",
+                    border: msg.from === "bot" ? "1px solid rgba(255, 255, 255, 0.05)" : "none",
+                  }}
                 >
-                  {/* TEXT */}
-                  {msg.type === "text" && <p>{msg.content}</p>}
-
-                  {/* LIST */}
+                  {msg.type === "text" && <div>{msg.content}</div>}
                   {msg.type === "list" && (
-                    <>
-                      <p className="font-semibold mb-2">{msg.title}</p>
-                      <ul className="list-disc list-inside space-y-1">
+                    <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+                      <div style={{ fontWeight: 700, color: "#6366f1" }}>{msg.title}</div>
+                      <ul style={{ margin: 0, paddingLeft: "1.2rem" }}>
                         {msg.items.map((item, idx) => (
-                          <li key={idx}>{item}</li>
+                          <li key={idx} style={{ marginBottom: "0.25rem" }}>{item}</li>
                         ))}
                       </ul>
-                    </>
+                    </div>
                   )}
-
-                  {/* LINK */}
                   {msg.type === "link" && (
                     <a
                       href={msg.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-blue-600 underline font-semibold"
+                      style={{ color: "white", fontWeight: 700, textDecoration: "underline" }}
                     >
-                      🔗 {msg.title}
+                      {msg.title} ↗
                     </a>
                   )}
                 </div>
               ))}
             </div>
 
-            {/* INPUT */}
-            <div className="p-4 border-t flex gap-2">
+            <div style={{
+              padding: "1.5rem",
+              borderTop: "1px solid rgba(255, 255, 255, 0.1)",
+              display: "flex",
+              gap: "0.75rem",
+            }}>
               <input
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder="Ask about resume..."
-                className="
-                  flex-1 px-4 py-2 rounded-full border
-                  outline-none focus:ring-2 focus:ring-pink-300
-                "
+                placeholder="Ask me something..."
+                style={{
+                  flex: 1,
+                  padding: "0.75rem 1rem",
+                  borderRadius: "12px",
+                  backgroundColor: "rgba(255, 255, 255, 0.05)",
+                  border: "1px solid rgba(255, 255, 255, 0.1)",
+                  color: "white",
+                  outline: "none",
+                  fontSize: "0.9rem",
+                }}
                 onKeyDown={(e) => e.key === "Enter" && sendMessage(input)}
               />
               <button
                 onClick={() => sendMessage(input)}
-                className="
-                  px-4 py-2 rounded-full
-                  bg-gradient-to-r from-pink-400 to-sky-400
-                  text-white font-semibold
-                "
+                style={{
+                  padding: "0.75rem 1.25rem",
+                  borderRadius: "12px",
+                  backgroundColor: "#6366f1",
+                  color: "white",
+                  border: "none",
+                  fontWeight: 600,
+                  cursor: "pointer",
+                }}
               >
                 Send
               </button>

@@ -25,7 +25,7 @@ export default function App() {
       {/*  DOG CURSOR — GLOBAL (LANDING + HOME) */}
       <DogCursor />
 
-      <div className="bg-[#0b0b14] text-white min-h-screen relative">
+      <div style={{ backgroundColor: "#09090b", color: "#f8fafc", minHeight: "100vh", position: "relative" }}>
         
         {/* 🎵 GLOBAL BACKGROUND MUSIC */}
         <audio
