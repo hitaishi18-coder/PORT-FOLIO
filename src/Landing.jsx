@@ -53,7 +53,7 @@ export default function Landing({ onEnter }) {
                pointerEvents: "none",
              }} />
             <img
-              src="/dora.jpg"
+              src="/skills.png"
               alt="Welcome"
               style={{
                 width: "100%",
