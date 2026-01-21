@@ -21,7 +21,7 @@ export default function Navbar({ dark, setDark }) {
       {/* LEFT : AVATAR + NAME */}
       <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
         <img
-          src="/avatar.jpg"
+          src="/hitaishi-image.jpg"
           alt="Hitaishi"
           style={{
             width: "2.5rem",
