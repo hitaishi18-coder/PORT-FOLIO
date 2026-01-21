@@ -29,7 +29,7 @@ export default function Home() {
       <AiAssistant />
 
       <Navbar dark={dark} setDark={setDark} />
-      <Background />
+      < />
       <Introduction />
       <LearningJourney />
       <Skills />
